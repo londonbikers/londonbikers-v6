@@ -1,0 +1,76 @@
+﻿<script type="text/html" id="notifications-forum-post">
+    <a class="notifications-menu-item" data-bind="attr: { href: $data.ContentUrl }">
+        <div class="notifications-menu-item-pic" data-bind="html: $data.GetProfilePictures()"></div>
+        <div class="notifications-menu-item-content">
+            <b data-bind="text: $data.Users()[0].UserName"></b> posted <b data-bind="text: $data.ContentName"></b> in a forum you're following
+        </div>
+    </a>
+</script>
+
+<script type="text/html" id="notifications-post-reply">
+    <a class="notifications-menu-item" data-bind="attr: { href: $data.ContentUrl }">
+        <div class="notifications-menu-item-pic" data-bind="html: $data.GetProfilePictures()"></div>
+        <div class="notifications-menu-item-content">
+            <b data-bind="text: $data.Users()[0].UserName"></b> replied to <b data-bind="text: $data.ContentName"></b>
+        </div>
+    </a>
+</script>
+
+<script type="text/html" id="notifications-replied-to-your-post">
+    <a class="notifications-menu-item" data-bind="attr: { href: $data.ContentUrl }">
+        <div class="notifications-menu-item-pic" data-bind="html: $data.GetProfilePictures()"></div>
+        <div class="notifications-menu-item-content">
+            <b data-bind="text: $data.Users()[0].UserName"></b> replied to your post <b data-bind="text: $data.ContentName"></b>
+        </div>
+    </a>
+</script>
+
+<script type="text/html" id="notifications-new-post-replies">
+    <a class="notifications-menu-item ml10" data-bind="attr: { href: $data.ContentUrl }">
+        <div class="notifications-menu-item-content">
+            There are <b data-bind="text: $data.Occurances"></b> new replies to the post <b data-bind="text: $data.ContentName"></b>
+        </div>
+    </a>
+</script>
+
+<script type="text/html" id="notifications-your-post-has-replies">
+    <a class="notifications-menu-item ml10" data-bind="attr: { href: $data.ContentUrl }">
+        <div class="notifications-menu-item-content">
+            Your post <b data-bind="text: $data.ContentName"></b> has <b data-bind="text: $data.Occurances"></b> new replies
+        </div>
+    </a>
+</script>
+
+<script type="text/html" id="notifications-photo-comment">
+    <a class="notifications-menu-item ml10" data-bind="attr: { href: $data.ContentUrl }">
+        <div class="notifications-menu-item-content">
+            <div class="div-table">
+                <div class="div-table-row">
+                    <div class="div-table-cell v-top">
+                        <b data-bind="text: $data.Users()[0].UserName"></b> commented on your photo:
+                    </div>
+                    <div class="div-table-cell pl10 v-middle">
+                        <img data-bind="attr: { src: window.GetPhotoUrl($data.ContentFilestoreId(), 75, 75)  }" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</script>
+
+<script type="text/html" id="notifications-photo-comments">
+    <a class="notifications-menu-item ml10" data-bind="attr: { href: $data.ContentUrl }">
+        <div class="notifications-menu-item-content">
+            <div class="div-table">
+                <div class="div-table-row">
+                    <div class="div-table-cell v-top">
+                        Your photo has <b data-bind="text: $data.Occurances"></b> new comments
+                    </div>
+                    <div class="div-table-cell pl10 v-middle">
+                        <img data-bind="attr: { src: window.GetPhotoUrl($data.ContentFilestoreId(), 75, 75)  }" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</script>

@@ -1,0 +1,45 @@
+﻿@using System.Configuration
+@{
+    // use ViewData values for Open Graph markup if they exist
+    // otherwise use default values
+
+    var ogUrl = !string.IsNullOrEmpty(ViewBag.OgUrl) ? ViewBag.OgUrl : Request.Url;
+    var ogSiteName = ConfigurationManager.AppSettings["LB.ProductName"];
+    var ogTitle = !string.IsNullOrEmpty(ViewBag.OgTitle) ? ViewBag.OgTitle : ConfigurationManager.AppSettings["LB.ProductName"];
+    var ogDescription = !string.IsNullOrEmpty(ViewBag.OgDescription) ? ViewBag.OgDescription : ConfigurationManager.AppSettings["LB.Description"];
+
+    string ogImage;
+    string ogImageWidth;
+    string ogImageHeight;
+
+    if (ViewBag.OgImage != null)
+    {
+        ogImage = ViewBag.OgImage;
+        ogImageWidth = !string.IsNullOrEmpty(ViewBag.OgImageWidth) ? ViewBag.OgImageWidth : null;
+        ogImageHeight = !string.IsNullOrEmpty(ViewBag.OgImageHeight) ? ViewBag.OgImageHeight : null;
+    }
+    else
+    {
+        ogImage = ConfigurationManager.AppSettings["LB.Url"] + "/content/images/lbv6-facebook-default-image-red.png";
+        ogImageWidth = "2400";
+        ogImageHeight = "1260";
+    }
+}
+
+<meta property="fb:app_id" content="@ConfigurationManager.AppSettings["Facebook.AppId"]" />
+<meta property="og:url" content="@ogUrl" />
+<meta property="og:site_name" content="@ogSiteName" />
+<meta property="og:title" content="@Html.Raw(ogTitle)" />
+<meta property="og:description" content="@ogDescription" />
+<meta property="og:image" content="@Html.Raw(ogImage)"/>
+@if (ogImageWidth != null)
+{
+    <meta property="og:image:width" content="@ogImageWidth"/>
+    <meta property="og:image:height" content="@ogImageHeight" />
+}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ConfigurationManager.AppSettings["Twitter.Username"]">
+<meta name="twitter:title" content="@Html.Raw(ogTitle)">
+<meta name="twitter:description" content="@ogDescription">
+<meta name="twitter:image" content="@Html.Raw(ogImage)">

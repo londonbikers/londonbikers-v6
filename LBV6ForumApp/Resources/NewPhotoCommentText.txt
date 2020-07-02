@@ -1,0 +1,9 @@
+﻿{0}, someone's replied to a photo on a thread you're following:
+
+{1}
+
+{2} wrote:
+"{3}"
+
+See the whole thing at:
+{4}

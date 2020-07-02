@@ -1,0 +1,17 @@
+﻿<p>
+	{0}, there's been <b>{1}</b> replies to a topic you're following recently:<br />
+	<b>{2}</b>
+</p>
+<p>
+	The latest reply is:
+</p>
+<div style="padding: 5px 20px 5px 20px; border-radius: 3px; background-color: #3dade1;">
+	<p>									
+		<b>{3}</b> wrote:<br />
+		<i>"{4}"</i>
+	</p>		
+</div>
+<p>
+	See the whole reply at:<br />
+	<a href="{5}" style="color: #21566f;">{5}</a>
+</p>

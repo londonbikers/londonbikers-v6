@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+  <connectionStrings>
+    <add name="Source" connectionString="data source=(local);database=LBV6_production;Trusted_Connection=True;" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <appSettings>
+    <add key="CoverPhotosBasePath" value="C:\Filestores\Object Store Download\Cover Photos" />
+    <add key="ProfilePhotosBasePath" value="C:\Filestores\Object Store Download\Profile Photos" />
+    <add key="PhotosBasePath" value="C:\Filestores\Object Store Download\Post Photos" />
+    <add key="PrivateMessagePhotosBasePath" value="C:\Filestores\Object Store Download\Private Message Photos" />
+    <add key="OVH.OpenStack.Password" value="ahdum5t4Xp5Hd9wucy7KsAWY2y8Qrwtx" />
+    <add key="OVH.OpenStack.Username" value="MA94T6dsXkfx" />
+    <add key="OVH.OpenStack.ProjectName" value="3683749757821198" />
+    <add key="OVH.OpenStack.ProjectRegion" value="GRA1" />
+  </appSettings>
+</configuration>

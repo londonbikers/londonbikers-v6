@@ -1,0 +1,10 @@
+﻿{0}, someone's posted in a forum you're following:
+
+{1} / {2}
+
+In: {3}
+
+{4} posted a photo.
+
+See the whole post at:
+{7}

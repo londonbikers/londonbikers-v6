@@ -1,0 +1,17 @@
+﻿<p>
+	{0}, there's been <b>{1}</b> new posts in a forum you're following since we last notified you:<br />
+	<b>{2} / {3}</b>
+</p>
+<div style="padding: 5px 20px 5px 20px; border-radius: 3px; background-color: #3dade1;">
+	<p>
+		The last post was: {4}
+	</p>
+	<p>		
+		<b>{5}</b> wrote:<br />
+		<i>"{6}"</i>
+	</p>		
+</div>
+<p>
+	See the whole post at:<br />
+	<a href="{7}" target="_blank" style="color: #fff; text-decoration: underline; font-weight: bold;">{7}</a>
+</p>

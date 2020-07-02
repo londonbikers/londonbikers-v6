@@ -1,0 +1,41 @@
+﻿@model LBV6.Models.ExternalLoginConfirmationViewModel
+@{
+    ViewBag.Title = "Register";
+    ViewBag.ShowAuthControls = false;
+}
+<h2>@ViewBag.Title.</h2>
+<h3>Associate your @ViewBag.LoginProvider account.</h3>
+
+@using (Html.BeginForm("external-login-confirmation", "account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h4>Association Form</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <p class="light">
+        You've successfully signed-in using<strong>@ViewBag.LoginProvider</strong>.
+    </p>
+    <p>
+        Please choose a username. Your username is how you will be known to everyone, i.e. "R1Fan"
+    </p>
+    <div class="alert alert-warning mt10" role="alert">
+        We recommend that you <b>don't</b> use your real name to help protect yourself from thieves
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-danger btn-lg" value="Register" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

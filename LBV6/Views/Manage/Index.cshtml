@@ -1,0 +1,160 @@
+﻿@model LBV6.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage Your Account";
+}
+
+<div class="center-column">
+    <div class="content-frame mt20">
+        <h2 class="text-center pb10">@ViewBag.Title</h2>
+        <p class="text-success">@ViewBag.StatusMessage</p>
+        <div>
+            <div class="text-center">
+                @(Model.HasPassword ? Html.ActionLink("Change your password", "change-password", null, new { @class = "btn btn-default btn-lg mr5" }) : Html.ActionLink("Create a password", "set-password", null, new { @class = "btn btn-primary btn-lg mr5" }))
+                @Html.ActionLink("Manage external logins", "manage-logins", null, new { @class = "btn btn-default btn-lg" })
+            </div>
+            <hr />
+
+            <h3>Preferences</h3>
+            <div class="mt10 mb10 alert alert-info" role="alert">
+                You can set your preferences for how you'd like things to work by default.
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><b>New Topic Notifications</b></h3>
+                </div>
+                <div class="panel-body">
+                    Want to always receive an email notification when someone replies to one of your topics?
+                    <p class="text-muted"><b>Note:</b> You can always decide individually on topics using the 'follow' button.</p>
+                    <div class="mt5">
+                        <input type="checkbox" data-toggle="toggle" id="pref-new-topic-notifications-checkbox" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><b>New Reply Notifications</b></h3>
+                </div>
+                <div class="panel-body">
+                    Want to always receive an email notification when someone replies to a topic after you have too?
+                    <p class="text-muted"><b>Note:</b> You can always decide individually on topics using the 'follow' button.</p>
+                    <div class="mt5">
+                        <input type="checkbox" data-toggle="toggle" id="pref-new-reply-notifications-checkbox" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><b>New Intercom Message Notifications</b></h3>
+                </div>
+                <div class="panel-body">
+                    Want to always receive an email notification when someone sends you a new Intercom message?
+                    <p class="text-muted"><b>Note:</b> You can always decide individually on conversations using the 'Mute notifications' menu item.</p>
+                    <div class="mt5">
+                        <input type="checkbox" data-toggle="toggle" id="pref-new-message-notifications-checkbox" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><b>New Photo Comment Notifications</b></h3>
+                </div>
+                <div class="panel-body">
+                    Want to always receive an email notification when someone comments on a photo of yours or one you've commented on?
+                    <div class="mt5">
+                        <input type="checkbox" data-toggle="toggle" id="pref-new-photo-comment-notifications-checkbox" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><b>Receive Newsletters</b></h3>
+                </div>
+                <div class="panel-body">
+                    From time to time we send out email newsletters. If you don't want to receive them, you can change this below.
+                    <div class="mt5">
+                        <input type="checkbox" data-toggle="toggle" id="pref-receive-newsletters-checkbox" />
+                    </div>
+                </div>
+            </div>
+
+            <dl class="dl-horizontal">
+                @*<dt>Password:</dt>
+                    <dd>
+                        [
+
+                        ]
+                    </dd>
+                    <dt>External Logins:</dt>
+                    <dd>
+                        @Model.Logins.Count [
+                        @Html.ActionLink("Manage", "manage-logins") ]
+                    </dd>*@
+                @*
+                    Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+
+                     See <a href="http://go.microsoft.com/fwlink/?LinkId=313242">this article</a>
+                        for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+
+                     Uncomment the following block after you have set up two-factor authentication
+                *@
+                @*
+                    <dt>Phone Number:</dt>
+                    <dd>
+                        @(Model.PhoneNumber ?? "None") [
+                        @if (Model.PhoneNumber != null)
+                        {
+                            @Html.ActionLink("Change", "AddPhoneNumber")
+                            @: &nbsp;|&nbsp;
+                            @Html.ActionLink("Remove", "RemovePhoneNumber")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Add", "AddPhoneNumber")
+                        }
+                        ]
+                    </dd>
+                *@
+                <!--
+                <dt>Two-Factor Authentication:</dt>
+                <dd>
+                    <p>
+                        There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=313242">this article</a>
+                        for details on setting up this ASP.NET application to support two-factor authentication.
+                    </p>
+                    @*@if (Model.TwoFactor)
+                                {
+
+                                    <form method="post" action="/Manage/DisableTwoFactorAuthentication">
+                                        Enabled
+                                        <input type="submit" value="Disable" class="btn btn-link" />
+                                    </form>
+                                }
+                                else
+                                {
+
+                                    <form method="post" action="/Manage/EnableTwoFactorAuthentication">
+                                        Disabled
+                                        <input type="submit" value="Enable" class="btn btn-link" />
+                                    </form>
+                                }*@
+                </dd>
+                -->
+            </dl>
+        </div>
+    </div>
+</div>
+
+@section script
+{
+    var _payload = @Html.Raw(Model.Payload);
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/manage")
+}

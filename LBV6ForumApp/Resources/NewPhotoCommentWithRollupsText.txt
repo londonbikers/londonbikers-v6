@@ -1,0 +1,10 @@
+﻿{0}, there's been {1} comments to a photo recently you're following on topic:
+{2}
+
+The latest comment was:
+							
+{3} wrote:
+"{4}"
+	
+See the whole thing at:
+{5}

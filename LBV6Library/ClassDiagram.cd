@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LBV6Library.Models.Category" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAACAAAAAAAAAAAQAAAAAAAQAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Category.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Forums" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LBV6Library.Models.Forum" BaseTypeListCollapsed="true">
+    <Position X="3" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAACgAgAEAAAAAA0AAAAAAAQAAAIAAIAAAAA=</HashCode>
+      <FileName>Models\Forum.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LBV6Library.Models.ForumAccessRole" BaseTypeListCollapsed="true">
+    <Position X="3" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\ForumAccessRole.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LBV6Library.Models.Notification">
+    <Position X="16.25" Y="11" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAAAAAAAAAABAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.NotificationSubscription">
+    <Position X="13.25" Y="11" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAAAAAAAAgAAAgAEAQAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\NotificationSubscription.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LBV6Library.Models.Post" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="2" Width="2.25" />
+    <AssociationLine Name="Attachments" Type="LBV6Library.Models.PostAttachment" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="7.786" />
+        <Point X="6" Y="9.129" />
+        <Point X="4.5" Y="9.129" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Photos" Type="LBV6Library.Models.Photo" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.562" Y="7.786" />
+        <Point X="6.562" Y="11.219" />
+        <Point X="3" Y="11.219" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgACIAAEIgXAACEEYIIAAAiAAAAAAARIAAAIAAAIAiA=</HashCode>
+      <FileName>Models\Post.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Attachments" />
+      <Property Name="ModerationHistory" />
+      <Property Name="Photos" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LBV6Library.Models.PostAttachment" BaseTypeListCollapsed="true">
+    <Position X="3" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAQAEAAAAAAAAAAAAAAAQAEAAQAAAAAAA=</HashCode>
+      <FileName>Models\PostAttachment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LBV6Library.Models.PostModerationHistoryItem">
+    <Position X="8.75" Y="8.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAgAAAAAAAAEAAAAAAAAAAAAAAAQAAQACAAAAAAA=</HashCode>
+      <FileName>Models\PostModerationHistoryItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LBV6Library.Models.PrivateMessage">
+    <Position X="15.75" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAACAAAAAgAAABEEAAAAAggAAAAAAAQAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\PrivateMessage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ReadBy" />
+      <Property Name="Attachments" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="LBV6Library.Models.PrivateMessageAttachment" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAAAAAQAAAAAAAAAAAAAAAAAQAEAAQAAAAAAA=</HashCode>
+      <FileName>Models\PrivateMessageAttachment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LBV6Library.Models.PrivateMessageHeader" BaseTypeListCollapsed="true">
+    <Position X="13" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAQACAAAAAAAgAAAAAEAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PrivateMessageHeader.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Users" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LBV6Library.Models.PrivateMessageHeaderUser">
+    <Position X="13" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAAAAABAAAAAAAEgAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PrivateMessageHeaderUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.PrivateMessageReadBy">
+    <Position X="18.5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PrivateMessageReadBy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Containers.PostsContainer" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAggAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Containers\PostsContainer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Posts" />
+      <Property Name="SeenBys" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LBV6Library.Models.Google.Email">
+    <Position X="25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.Url">
+    <Position X="30.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.Name">
+    <Position X="30.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgABAAAAAAAUAAAAAAAAQAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.Image">
+    <Position X="25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.Organization">
+    <Position X="30.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAAAAIAAAQgEAAAAAAAAQAAAECAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.PlacesLived">
+    <Position X="25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAACAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.AgeRange">
+    <Position X="27.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.CoverPhoto">
+    <Position X="33.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.CoverInfo">
+    <Position X="33.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.Cover">
+    <Position X="30.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAIAACAAAAAAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CoverPhoto" />
+      <Property Name="CoverInfo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LBV6Library.Models.Google.GooglePlusUserProfile">
+    <Position X="27.5" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EIADEAAACCBAAEDQBAAAAAwCCgAIAhAAiYAAACACAAA=</HashCode>
+      <FileName>Models\Google\GooglePlusUserProfile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Name" />
+      <Property Name="Image" />
+      <Property Name="AgeRange" />
+      <Property Name="Cover" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Organizations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="LBV6Library.Models.TopicSeenBy">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAEAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TopicSeenBy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.Photo">
+    <Position X="1.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAEkAAAAAEhAAAAAAAQACAAQAAAAAAA=</HashCode>
+      <FileName>Models\Photo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LBV6Library.Models.TopicView">
+    <Position X="4" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAAAAAAgCAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\TopicView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LBV6Library.Models.User">
+    <Position X="20.5" Y="11" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACIMAEACABAAKAAAAAAAAAAAITACQEgYEKAAACAG0=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LBV6Library.Models.UserClaim">
+    <Position X="23" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\UserClaim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="LBV6Library.Models.PostStatus">
+    <Position X="8.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAgAAAAAACAAAA=</HashCode>
+      <FileName>Models\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LBV6Library.Models.ModerationType">
+    <Position X="9.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAEAAAAAAAAAAAAAAAQAAAAAAAACAAAA=</HashCode>
+      <FileName>Models\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LBV6Library.Models.EmailTemplate" Collapsed="true">
+    <Position X="19" Y="9.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AABAwAJIFAAAAAAIFAAAAAAYQACBAASCGQAAAUAARAA=</HashCode>
+      <FileName>Models\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LBV6Library.Models.Gender">
+    <Position X="21" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Models\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LBV6Library.Models.NotificationType">
+    <Position X="13.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAEAAACAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LBV6Library.Models.UserStatus">
+    <Position X="21" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAQAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LBV6Library.Models.PrivateMessageType" Collapsed="true">
+    <Position X="20.75" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LBV6Library.Models.PrivateMessageUserOperationType" Collapsed="true">
+    <Position X="19.5" Y="8.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LBV6Library.Models.PostIndexType" Collapsed="true">
+    <Position X="20.75" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Enumerations.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

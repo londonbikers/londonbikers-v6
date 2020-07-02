@@ -1,0 +1,23 @@
+﻿@model HandleErrorInfo
+@{
+    ViewBag.Title = "Error";
+    ViewBag.ShowAuthControls = false;
+}
+
+<div class="content-frame mt10 mb10 text-center">
+    <h1 class="text-danger">Oops</h1>
+    <hr class="compact" />
+    <div class="large">
+        <p class="text-danger">
+            Damn, it won't start. Sorry.
+        </p>
+        <p class="text-danger">
+            Please <a href="mailto:contact@londonbikers.com">contact us</a> if this keeps happening.
+        </p>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/_shared")
+}

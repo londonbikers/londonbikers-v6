@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Change";
+}
+
+<div class="center-column">
+    <div class="content-frame content-frame-unpadded mt20">
+
+        <div class="pt20 pr20 pb10 pl20">
+            <h1 class="pb10">We're Changing</h1>
+
+            <p>
+                We're changing... after a decade of bringing bikers together in London, shooting the best photo galleries,
+                covering the latest motorcycling news and features, we had to take stock and ask ourselves if our course was right and if we could do things better
+                and the answer is yes of course, who can't do better?
+            </p>
+            <p>
+                The world has moved on and we need to too. The web is more open, content is shared further, everything's integrated and biking is getting higher
+                tech too. Nearly everyone runs a helmet cam it seems, uses intercoms, has GPS and has a super-computer in their pocket.
+            </p>
+            <p>
+                We've decided to reboot LB, cut it back to basics whilst we build a new LB to make it even more relevant to todays bikers.
+            </p>
+
+            <blockquote class="medium-2">
+                <p>Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.</p>
+                <footer>Ferris Bueller</footer>
+            </blockquote>
+
+            <p class="mt10">With that in mind, we're taking LB back to it's heart - a communication platform for bikers, starting from the forum and building, shaping new ways to bring london bikers together.</p>
+
+            <p>
+                So for now that means that some content such as news, features and galleries aren't available, but we'll bring them back. Perhaps not as they were
+                but it would be a crying shame to lose more than ten years worth of content just because we're taking a new heading, so for now, please stick with us and
+                we'll try not to let you down.
+            </p>
+        </div>
+
+        <hr />
+
+        <div class="pt10 pr20 pb20 pl20">
+
+            <h2>Signing in</h2>
+
+            <p class="mt10">We've made it easier to sign-in to the site. You don't even need a password any more, just sign-in using the Facebook or Google buttons and you'll be signed straight in. Note that the email address for your Facebook/Google account needs to be the same as the one used on LB for this to work for existing members, otherwise you'll end up with a new account :)</p>
+
+            <div class="mb20">
+                <img src="https://londonbikers.com/content/images/sign-in-social.jpg" class="img-responsive" alt="social sign-in" />
+            </div>
+
+            <p>If you want to sign-in manually with a password, you'll need to reset your password first as we had to assign random ones to everyone as we've switched over to a new higher security sign-in system. The old passwords generally weren't good enough. Now they're fully encrypted and nobody at LB can access them.</p>
+
+            <p>The password reset page is here: @Html.ActionLink("Forgot your password?", "forgot-password", "account")</p>
+
+            <h2 class="mt20">Basics</h2>
+
+            <p class="mt10">Yep, we do mean back to basics. The new site is super light on features for now. We're developing the site from scratch which takes a long time. Creating good software takes time but we don't expect you to wait for it, so we're releasing early and we'll release new features often. I'll start another post to detail what we're working on, but to reassure you, here's the priority list:</p>
+
+            <ul>
+                <li>Photo uploads</li>
+                <li>Multi-recipient private messages/chat</li>
+                <li>Search</li>
+                <li>User profiles</li>
+                <li>Fancy control for creating new posts with formatting and editing existing posts</li>
+            </ul>
+
+            <p>Our main goal for the launch was to allow people to post and for the site to work on mobile devices. The old site was a mix of something we developed ourselves and third party software for the forum. Now we've got full control over it all and plan on making LB a much more modern communication platform...</p>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/_shared")
+}

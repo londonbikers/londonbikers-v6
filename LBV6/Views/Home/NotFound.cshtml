@@ -1,0 +1,25 @@
+﻿@model HandleErrorInfo
+@{
+    ViewBag.Title = "Not Found";
+    ViewBag.ShowAuthControls = false;
+}
+
+<div class="center-column">
+    <div class="content-frame mt20 text-center">
+        <h1 class="text-danger">Umm?</h1>
+        <hr class="compact" />
+        <div class="large">
+            <p class="text-danger">
+                We couldn't find that page. Sorry
+            </p>
+            <p class="text-danger">
+                Please <a href="mailto:contact@londonbikers.com">contact us</a> if you think this is our mistake.
+            </p>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/_shared")
+}

@@ -1,0 +1,89 @@
+﻿@model LBV6.Models.ManageLoginsViewModel
+@{
+    ViewBag.Title = "Manage Your Logins";
+}
+
+<div class="center-column">
+    <div class="content-frame content-frame-unpadded mt20">
+
+        <div class="pt20 pr 20 pl20">
+            <h2>@ViewBag.Title</h2>
+            <p class="text-success">@ViewBag.StatusMessage</p>
+            <p>
+                You can sign-in using your Facebook or Google account, in addition to being able to sign-in with your LB username and password. If you want to remove one of these logins, you can do so below.
+            </p>
+        </div>
+        
+        @if (Model.CurrentLogins.Count > 0 || Model.OtherLogins.Count > 0)
+        {
+            <hr />
+        }
+
+        @if (Model.CurrentLogins.Count > 0)
+        {
+            <div class="pr20 pb20 pl20">
+                <h4>Registered logins</h4>
+                <table class="table mt20">
+                    <tbody>
+                        @foreach (var account in Model.CurrentLogins)
+                        {
+                        <tr>
+                            <td>
+                                <div class="pt5">
+                                    <b>@account.LoginProvider</b>
+                                </div>
+                            </td>
+                            <td class="text-right">
+                                @if (ViewBag.ShowRemoveButton)
+                                {
+                                    using (Html.BeginForm("remove-login", "manage"))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div>
+                                            @Html.Hidden("loginProvider", account.LoginProvider)
+                                            @Html.Hidden("providerKey", account.ProviderKey)
+                                            <input type="submit" class="btn btn-primary" value="Remove" title="Remove this @account.LoginProvider login from your account" />
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    @: &nbsp;
+                                }
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        @if (Model.OtherLogins.Count > 0)
+        {
+            <div class="p20">
+                <h4>Add another account</h4>
+                <div class="mb10">
+                    Link another of your accounts with your LB account to sign-in with it in future.
+                </div>
+                @using (Html.BeginForm("link-login", "manage"))
+                {
+                @Html.AntiForgeryToken()
+                <div id="socialLoginList">
+                    <p>
+                        @foreach (var p in Model.OtherLogins)
+                        {
+                            <button type="submit" class="btn btn-primary" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Sign-in using your @p.Caption account">@p.AuthenticationType</button>
+                        }
+                    </p>
+                </div>
+                }
+            </div>
+        }
+
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/_shared")
+}

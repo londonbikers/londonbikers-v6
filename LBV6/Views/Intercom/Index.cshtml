@@ -1,0 +1,346 @@
+﻿@using System.Configuration
+@{
+    ViewBag.Title = "Intercom";
+    ViewBag.ShowForumTopNav = true;
+}
+
+<div id="intercom-outer-container">
+
+    <div id="intercom-outer-box" class="content-frame content-frame-unpadded w100pc content-frame-centered" style="display:none">
+
+        <div id="intercom-left-col" data-bind="visible: ShowHeaders">
+
+            <div id="intercom-new-msg-initiator-box" class="p20 text-center content-frame-bottom-border">
+                <div class="mb10 light hide-767">
+                    Send messages to other members
+                </div>
+                <button class="btn btn-primary" data-bind="click: StartNewMessage"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <b>Send a new message</b></button>
+            </div>
+
+            <div id="intercom-header-controls" class="content-frame-bottom-border">
+
+                <div class="fl">
+                        
+                    <button class="btn btn-default min-width-100" data-bind="click: ShowAllHeaders, attr: { disabled: !HeadersFilterUnread() ? 'disabled': null }, css: { 'btn-sm': IsMobile(), 'btn-xs': !IsMobile() }">
+                        All
+                    </button>
+                    <button class="btn btn-default min-width-100" data-bind="click: ShowUnreadHeaders, attr: { disabled: HeadersFilterUnread() ? 'disabled': null}, css: { 'btn-sm': IsMobile(), 'btn-xs': !IsMobile() }">
+                        Unread
+                    </button>
+
+                </div>
+                <div class="fr">
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-link dropdown-toggle icon-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bind="css: { 'btn-sm': IsMobile(), 'btn-xs': !IsMobile() }">
+                            <span class="glyphicon glyphicon-option-vertical"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="javascript:void(0)" data-bind="click: MarkEveryMessageAsRead">
+                                    <span class="glyphicon glyphicon-ok mr5" aria-hidden="true"></span>
+                                    Mark every message as read
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+
+            </div>
+
+            <div class="medium text-center p10" style="display: none;" data-bind="visible: Headers().length === 0 && !HeadersFilterUnread() && !HeadersBeingRetrieved()">
+                Your conversations will show here
+            </div>
+
+            <div class="medium text-center p10" style="display: none;" data-bind="visible: Headers().length === 0 && HeadersFilterUnread() && !HeadersBeingRetrieved()">
+                All messages read
+            </div>
+
+            <div id="intercom-headers-box" data-bind="foreach: Headers.infinitescroll.displayItems, css: {'intercom-loading-bg': ShowingHeaderLoader() && !ProcessingMessageUserDirect() }">
+
+                <div class="intercom-header" data-bind="attr: { id: 'header-' + Id }, click: function() { $root.ShowHeader(Id) }, css: { 'intercom-header-unread': HasUnreadMessagesForCurrentUser(), 'intercom-header-selected': Id === $root.CurrentPrivateMessageHeader().Id }">
+
+                    <div class="intercom-header-inner">
+                        <div class="intercom-header-pics" data-bind="html: $root.GetFirstNonCurrentUserProfilePicture($data.FirstNonCurrentUser())"></div>
+                        <div class="intercom-header-names">
+                            <div class="intercom-header-names-inner">
+                                <b><span data-bind="text: $root.GetFirstNonCurrentUserName($data.FirstNonCurrentUser())"></span></b>
+
+                                <span class="lowlight" data-bind="visible: $data.Users().length > 2" style="display: none">
+                                    - plus <span data-bind="text: $data.Users().length - 2"></span> more...
+                                </span>
+
+                                <!-- ko if: HasUnreadMessagesForCurrentUser() -->
+                                <span class="large red v-align">&#8226;</span>
+                                <!-- /ko -->
+
+                                <div data-bind="text: GetRelativeLastMessageCreated"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="intercom-right-col" style="display: none;" data-bind="visible: ShowMessages">
+
+            <div id="intercom-right-col-inner" style="display: none" data-bind="visible: ShowingHeader">
+
+                <div id="intercom-right-col-inner-top">
+
+                    <div id="intercom-right-col-menu-strip" class="content-frame-bottom-border">
+
+                        <div id="intercom-right-col-menu-strip-1">
+
+                            <button type="button" class="btn btn-sm btn-default" data-bind="click: CloseMessage">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                Back
+                            </button>
+
+                        </div>
+
+                        <div id="intercom-right-col-menu-strip-2">
+
+                            To:
+
+                            <b><span data-bind="text: $root.GetFirstNonCurrentUserName(CurrentPrivateMessageHeader().FirstNonCurrentUser())"></span></b>
+
+                            <span class="lowlight" data-bind="visible: CurrentPrivateMessageHeader().Users().length > 2, attr: { title: CurrentPrivateMessageHeader().GetUserListCsv() }" style="display: none">
+                                - plus <span data-bind="text: CurrentPrivateMessageHeader().Users().length - 2"></span> more...
+                            </span>
+
+                        </div>
+
+                        <div id="intercom-right-col-menu-strip-3">
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-link dropdown-toggle icon-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li data-bind="visible: CurrentPrivateMessageHeader().Users().length > 2">
+                                        <a href="javascript:void(0)" data-bind="click: Leave">
+                                            <span class="glyphicon glyphicon-log-out mr10 lowlight" aria-hidden="true"></span>
+                                            Leave Chat
+                                        </a>
+                                    </li>
+                                    <li data-bind="visible: CurrentPrivateMessageHeader().Users().length === 2">
+                                        <a href="javascript:void(0)" data-bind="click: Delete">
+                                            <span class="glyphicon glyphicon-trash mr10  lowlight" aria-hidden="true"></span>
+                                            Delete Chat
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" data-bind="click: ShowUserBox">
+                                            <span class="glyphicon glyphicon-user mr10 lowlight" aria-hidden="true"></span>
+                                            Add or remove people
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" data-bind="click: MarkAllMessagesInHeaderAsRead">
+                                            <span class="glyphicon glyphicon-ok mr10 lowlight" aria-hidden="true"></span>
+                                            Mark all messages as read
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="intercom-user-search-box" class="content-frame-bottom-border" style="display: none" data-bind="visible: ShowingUserBox">
+                        <div id="intercom-user-search-box-close">
+                            <button type="button" class="close" data-bind="click: HideUserBox" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="i1" class="mr10">To:</label>
+                                <input type="text" class="form-control-flat" id="i1" placeholder="Username..." data-bind="textInput: UserSearchTerm" />
+                            </div>
+                        </form>
+                        <div id="message-users" data-bind="foreach: CurrentPrivateMessageHeader().Users">
+                            <div class="message-user">
+                                <b><span data-bind="text: User.UserName"></span></b>
+                                <button type="button" class="close ml10" data-bind="visible: $data.User.Id != window._user.Id, click: $root.RemoveHeaderUser" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="intercom-user-search-results" data-bind="visible: UserSearchResults().length > 0 && ShowingUserBox(), foreach: UserSearchResults" style="display: none">
+                        <div class="intercom-user-search-result" data-bind="click: $root.ProcessUserSearchResultClick">
+                            <span data-bind="html: window.GetUserProfileGraphic('medium', $data.UserName, $data.ProfileFileStoreId)"></span>
+                            <div class="ml5 inline v-align">
+                                <b><span class="medium-size" data-bind="text: UserName, attr: { href:window.GetUserProfileUrl($data.UserName) }"></span></b>
+                                <div class="lowlight small">
+                                    <span data-bind="visible: !window.IsNullOrEmpty($data.Tagline)">
+                                        <span data-bind="text: $data.Tagline"></span> -
+                                    </span>
+                                    Joined <span data-bind="text: new Date($data.Joined).getFullYear()"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p20 text-center content-frame-alt-bg" data-bind="visible: ShowingUserSearchNoResults" style="display: none">
+                        <b>No results</b>
+                    </div>
+
+                    <div class="p20 text-center content-frame-alt-bg" data-bind="visible: ShowingUserSearchLoader" style="display: none">
+                        <img src="~/Content/Svg/reload.svg" width="20" height="20" alt="loading..." />
+                    </div>
+
+                    <div id="intercom-messages-box" class="break-long-links" data-bind="visible: UserSearchResults().length == 0, foreach: Messages.infinitescroll.displayItems">
+
+                        <div style="display: none;" data-bind="visible: Type === 'UserAdded'" class="text-center small lowlight mt10">
+                            <b><a data-bind="attr: { href:window.GetUserProfileUrl(UserName) }, text: UserName"></a></b> was added
+                        </div>
+
+                        <div style="display: none;" data-bind="visible: Type === 'UserRemoved'" class="text-center small lowlight mt10">
+                            <b><a data-bind="attr: { href:window.GetUserProfileUrl(UserName) }, text: UserName"></a></b> was removed
+                        </div>
+
+                        <div style="display: none;" data-bind="visible: Type === 'UserLeft'" class="text-center small lowlight mt10">
+                            <b><a data-bind="attr: { href:window.GetUserProfileUrl(UserName) }, text: UserName"></a></b> left
+                        </div>
+
+                        <div style="display: none;" class="intercom-message" data-bind="visible: Type === 'Message', attr: { id: 'msg-' + Id }">
+
+                            <div class="intercom-message-pic">
+                                <a data-bind="attr: { href: window.GetUserProfileUrl(UserName) }, html: window.GetUserProfileGraphic('medium', UserName, ProfileFileStoreId())"></a>
+                            </div>
+                            <div class="intercom-message-content">
+
+                                <div data-bind="html: GetFormattedContent"></div>
+
+                                <div class="mt5" style="display: none" data-bind="visible: Photos().length > 0, foreach: Photos">
+                                   
+                                    <div class="photo-back mt20">
+                                        <div class="img-responsive">
+                                            <a data-bind="attr: { href: window.GetIntercomPhotoUrl($data.FilestoreId, screen.width, screen.height) }" target="_blank">
+                                                <img data-bind="css: { 'br3-nt': $index() === ($parent.Photos().length - 1) && $data.Width >= 1200 }, attr: { src: window.GetIntercomPhotoUrl($data.FilestoreId, 1200, 900) }"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="mt5 light small">
+                                    <span data-bind="text: UserName"></span> -
+                                    <span data-bind="text: GetRelativeCreated, attr: { title: GetFriendlyCreated }"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="intercom-right-col-inner-bottom" class="content-frame-top-border">
+
+                    <div id="intecom-write-box" data-bind="css: { p10: !DesktopView(), p15: DesktopView }">
+
+                        <div id="intercom-write-box-mobile" data-bind="visible: !DesktopView()">
+                                
+                            <div id="intercom-write-box-mobile-1">
+                                <textarea id="intercom-editor-mobile" class="form-control mw100pc" data-bind="textInput: NewPrivateMessage().Content" spellcheck="true" placeholder="Write your message..."></textarea>
+                            </div>
+                            <div id="intercom-write-box-mobile-2" class="pl10">
+                                <button id="message-submit-btn btn-sm" type="submit" class="btn btn-primary" data-bind="enable: CanSendMessage, click: SendMessage">Send</button>
+                            </div>
+
+                        </div>
+
+                        <div data-bind="visible: DesktopView">
+
+                            <textarea id="intercom-editor-desktop" class="form-control mw100pc" data-bind="textInput: NewPrivateMessage().Content" spellcheck="true" placeholder="Write your message..."></textarea>
+
+                            <div class="pt10 text-right">
+                                <button id="message-submit-btn" type="submit" class="btn btn-primary btn-sm" data-bind="enable: CanSendMessage, click: SendMessage">Send Message</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="leave-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Leave</h4>
+            </div>
+            <div class="modal-body">
+                Leaving this conversation will stop you receiving any new messages from this group but you will allow you to continue to see the conversation up to now.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-bind="enable: ProcessingSelfRemoval() == false, click: ExecuteLeave">Leave group</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Delete</h4>
+            </div>
+            <div class="modal-body">
+                Deleting this conversation will remove it completely.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" data-bind="enable: ProcessingSelfRemoval() == false, click: ExecuteDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="remove-user-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Remove <span data-bind="text: UserBeingRemoved() != null ? UserBeingRemoved().User.UserName: null"></span> from chat</h4>
+            </div>
+            <div class="modal-body">
+                Removing <b data-bind="text: UserBeingRemoved() != null ? UserBeingRemoved().User.UserName: null"></b> will stop them from receiving any new messages by this group and from seeing past messages.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-bind="click: ExecuteRemoveHeaderUser">Remove <span data-bind="text: UserBeingRemoved() != null ? UserBeingRemoved().User.UserName: null"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_tmplTextEditors")
+
+@section scripts
+{
+    <script language="javascript">
+        _maxHeaderUserCount = @ConfigurationManager.AppSettings["LB.Intercom.MaxHeaderUserCount"];
+    </script>
+    @Scripts.Render("~/bundles/intercom")
+}

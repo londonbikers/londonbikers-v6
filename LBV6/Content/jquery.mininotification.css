@@ -1,0 +1,40 @@
+﻿#notification {
+    display: none;
+    position: fixed;
+    left: 0;
+    cursor: pointer;
+    width: 100%;
+    background: #fff;
+    font-size: 14px;
+    text-align: center;
+    z-index:9999;
+    color: #3C3C3C;
+    -moz-box-shadow:0 0 0.5em #000000;
+    -moz-box-shadow:0 0 0.5em rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow:0 0 0.5em #000000;
+    -webkit-box-shadow:0 0 0.5em rgba(0, 0, 0, 0.3);
+    -ms-box-shadow:0 0 0.5em #000000;
+    -ms-box-shadow:0 0 0.5em rgba(0, 0, 0, 0.3);
+    box-shadow:0 0 0.5em #000000;
+    box-shadow:0 0 0.5em rgba(0, 0, 0, 0.3);
+}
+
+#notification p {
+    padding: 20px 0 !important;
+    margin:  0 !important;
+}
+
+.notification-info {
+    background-color: #3a87ad;
+    color: #d9edf7;
+}
+
+.notification-error {
+    background-color: #b94a48;
+    color: #f2dede;
+}
+
+.notification-success {
+    background-color: #468860;
+    color: #dff0d8;
+}

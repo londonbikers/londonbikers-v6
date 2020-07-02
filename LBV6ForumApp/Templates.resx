@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="EmailConfirmationRequiredHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\emailconfirmationrequiredhtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="EmailConfirmationRequiredText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\emailconfirmationrequiredtext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewPrivateMessageHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newprivatemessagehtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewPrivateMessageText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newprivatemessagetext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewPrivateMessageWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newprivatemessagewithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewPrivateMessageWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newprivatemessagewithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopichtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplyhtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplytext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopictext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotoHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotohtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotosHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotoshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotosText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotostext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotoText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphototext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="PasswordResetLinkHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\passwordresetlinkhtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="PasswordResetLinkText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\passwordresetlinktext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="PostModeratedNotificationHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\postmoderatednotificationhtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PostModeratedNotificationText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\postmoderatednotificationtext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RegistrationEmailConfirmationRequiredHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\registrationemailconfirmationrequiredhtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RegistrationEmailConfirmationRequiredText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\registrationemailconfirmationrequiredtext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="WelcomeHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\welcomehtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="WelcomeText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\welcometext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_Master" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\_master.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_Master2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\_master2.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="NewTopicWithPhotosWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotoswithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotosWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotoswithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotoWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotowithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotoWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotowithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotoHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotohtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotosHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotoshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotosText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotostext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotoText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphototext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotosWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotoswithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotoWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotowithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotosWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotoswithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotoWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotowithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotoWithoutContentHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotowithoutcontenthtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotoWithoutContentText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotowithoutcontenttext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotosWithoutContentHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotoswithoutcontenthtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotosWithoutContentText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotoswithoutcontenttext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotoWithoutContentHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotowithoutcontenthtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotoWithoutContentText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotowithoutcontenttext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotoWithoutContentWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotowithoutcontentwithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotoWithoutContentWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotowithoutcontentwithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotosWithoutContentHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotoswithoutcontenthtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotosWithoutContentText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotoswithoutcontenttext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotosWithoutContentWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotoswithoutcontentwithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotosWithoutContentWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotoswithoutcontentwithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotoWithoutContentWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotowithoutcontentwithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicWithPhotoWithoutContentWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicwithphotowithoutcontentwithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotosWithoutContentWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotoswithoutcontentwithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewTopicReplyWithPhotosWithoutContentWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newtopicreplywithphotoswithoutcontentwithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewPhotoCommentWithRollupsHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newphotocommentwithrollupshtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewPhotoCommentWithRollupsText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newphotocommentwithrollupstext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewPhotoCommentHtml" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newphotocommenthtml.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="NewPhotoCommentText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\newphotocommenttext.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+</root>

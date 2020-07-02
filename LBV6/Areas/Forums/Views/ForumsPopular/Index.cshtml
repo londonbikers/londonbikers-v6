@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Popular Posts";
+    ViewBag.Description = "The current most popular posts.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowForumTopNav = true;
+}
+
+<div class="center-column">
+
+    <div class="content-frame content-frame-unpadded mt20">
+        
+        <div class="pt20 pr20 pl20">
+
+            <div class="text-center mb20">
+                <a href="/forums">Latest</a> <span class="light pl10 pr10">|</span> <b>Popular</b> <span class="light pl10 pr10">|</span> <a href="/forums/browse">Browse</a>
+            </div>
+            
+            <div class="text-center mb10">
+                <div class="popular-controls">
+                    <button data-bind="click: function() {$root.ChangeDaysToShow(1)}" id="btn-day-1" class="btn btn-default btn-sm mr10">24 Hrs</button>
+                    <button data-bind="click: function() {$root.ChangeDaysToShow(7)}" id="btn-day-7" class="btn btn-default btn-sm mr10">Week</button>
+                    <button data-bind="click: function() {$root.ChangeDaysToShow(30)}" id="btn-day-30" class="btn btn-default btn-sm">Month</button>
+                </div>
+            </div>
+
+            @*<div class="text-center" data-bind="visible: Topics.pager.totalPages() > 1">
+            <div class="latest-pager">
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.first">First</button>
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.previous">Prev</button>
+                <span class="ml10 mr10 hide-under-400">
+                    Page <span data-bind="text: NumberWithCommas(Topics.pager.page())"></span> <span class="hide-small">of <span data-bind="text: NumberWithCommas(Topics.pager.totalPages())"></span></span>
+                </span>
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.next">Next</button>
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.last">Last</button>
+            </div>
+        </div>*@
+
+        </div>
+
+        <div data-bind="template: { name: GetTopicsTemplateName }"></div>
+
+        <div class="p20">
+            <div class="text-center" data-bind="visible: Topics.pager.totalPages() > 1">
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.first">First</button>
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.previous">Prev</button>
+                <span class="ml10 mr10 hide-under-400">
+                    Page <span data-bind="text: NumberWithCommas(Topics.pager.page())"></span> <span class="hide-small">of <span data-bind="text: NumberWithCommas(Topics.pager.totalPages())"></span></span>
+                </span>
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.next">Next</button>
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.last">Last</button>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_tmplLatestTopicHeadersDesktop")
+    @Html.Partial("_tmplLatestTopicHeadersPhone")
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/forums/popular_topics")
+}

@@ -1,0 +1,10 @@
+﻿{0}, just a headsup; we've had to moderate one of your posts. See below for details:
+
+Post: {2} <{1}>
+Action taken: {3}
+Reason: "{4}"
+
+No action is required from you.
+
+
+https://londonbikers.com

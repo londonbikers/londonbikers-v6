@@ -1,0 +1,85 @@
+﻿@using LBV6.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Sign-in";
+    ViewBag.ShowAuthControls = false;
+}
+
+<div class="content-frame-colour-1 p20 text-center">
+    <h2 class="text-uppercase">@ViewBag.Title</h2>
+    <div class="row p20 text-center">
+        <div class="large-social-buttons">
+            @Html.Partial("_SocialLoginButtons")
+        </div>
+        <div class="mt10 text-uppercase">
+            Super-fast, jump straight in
+        </div>
+    </div>
+</div>
+
+
+<div class="content-frame-dark mb10 p20">
+    
+    <div class="center-column">
+
+        <div class="row p20">
+            <section id="loginForm">
+                @using (Html.BeginForm("sign-in", "account", new {ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="mb40">
+                        <h4 class="light text-center">Or use a local password to sign-in if you have one</h4>
+                    </div>
+                    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Username, "Username / Email", new {@class = "col-md-2 control-label"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Username, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Username, "", new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new {@class = "col-md-2 control-label"})
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Password, "", new {@class = "text-danger"})
+
+                            <div class="alert alert-warning mt20" role="alert">
+
+                                <div class="mb10">
+                                    <b>Old Members!</b>
+                                </div>
+                                As part of launching the new site (April '15) we had to reset everyone's password. To sign-in, either use the Facebook or Google buttons above (recommended!) or please use the @Html.ActionLink("Forgot your password?", "forgot-password", "account") feature to
+                                set a new password of your choice. Apologies for the inconvenience - We had to do this to make sure everyone's account was secure by using modern encryption methods.
+
+                            </div>
+
+                            <div class="mt20">
+                                @Html.ActionLink("Forgot your password?", "forgot-password", "account")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox ml20">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Sign-in" class="btn btn-primary btn-lg" />
+                            <a href="/account/register" class="btn btn-lg btn-outline ml10 light">or register</a>
+                        </div>
+                    </div>
+                }
+            </section>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

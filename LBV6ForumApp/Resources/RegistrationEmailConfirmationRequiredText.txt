@@ -1,0 +1,9 @@
+﻿{0}, thanks for registering!
+
+We need to confirm your email address. Please click the link below to confirm that it was you that wanted to join londonbikers.com
+
+Confirmation link:
+{1}
+
+
+https://londonbikers.com

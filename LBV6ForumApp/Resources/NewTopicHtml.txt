@@ -1,0 +1,17 @@
+﻿<p>
+	{0}, someone's posted in a forum you're following:<br />
+	<b>{1} / {2}</b>
+</p>
+<div style="padding: 5px 20px 5px 20px; border-radius: 3px; background-color: #3dade1;">
+	<p>
+		In: {3}
+	</p>
+	<p>		
+		<b>{4}</b> wrote:<br />
+		<i>"{5}"</i>
+	</p>		
+</div>								
+<p>
+	See the whole post at:<br />
+	<a href="{6}" target="_blank" style="color: #fff; text-decoration: underline; font-weight: bold;">{6}</a>
+</p>

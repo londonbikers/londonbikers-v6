@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Search";
+    ViewBag.ShowForumTopNav = true;
+}
+
+<div class="center-column">
+    <div class="content-frame content-frame-unpadded mt20">
+        <div class="pt20 pr20 pl20">
+            <h2>Search</h2>
+            <div class="alert alert-warning mt20" role="alert">
+                <b>Sorry</b>, we know this search isn't the best. We're going to fix this shortly.
+            </div>
+        </div>
+        <hr class="compact"/>
+        <div class="p20">
+            <script>
+                (function() {
+                    var cx = "010770798718925201963:e3iagmmbqmy";
+                    var gcse = document.createElement("script");
+                    gcse.type = "text/javascript";
+                    gcse.async = true;
+                    gcse.src = (document.location.protocol === "https:" ? "https:" : "http:") +
+                        "//cse.google.com/cse.js?cx=" +
+                        cx;
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(gcse, s);
+                })();
+            </script>
+            <gcse:search></gcse:search>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/_shared")
+}

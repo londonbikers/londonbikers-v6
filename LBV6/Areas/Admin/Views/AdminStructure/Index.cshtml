@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Forum Structure";
+}
+
+<h3>Forum structure</h3>
+<div class="panel panel-primary mt20">
+    <div class="panel-heading">
+        <h3 class="panel-title">Add Category</h3>
+    </div>
+    <div class="panel-body">
+        <form role="form" class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter category name..." data-bind="value: NewCategory().Name">
+            </div>
+            <button type="submit" class="btn btn-primary" data-bind="click: CreateCategory, enable: NewCategory().IsValid">Submit</button>
+        </form>
+    </div>
+</div>
+
+<h4 class="mt40">Structure:</h4>
+
+<div data-bind="sortable: { data: Categories, afterMove: $root.OrderCategories }">
+    
+    <div class="mb20">
+        
+        <div class="well well-sm moveCursor">
+            <div class="fl">
+                <span data-bind="visible: !$root.IsCategorySelected($data)">
+                    <a href="#" title="Edit name" class="bold" data-bind="text: Name, click: $root.SelectedCategory"></a>
+                </span>
+                <span data-bind="visibleAndSelect: $root.IsCategorySelected($data)">
+                    <input data-bind="value: Name, event: { blur: $root.RenameCategory }" class="form-control"/>
+                </span>
+            </div>
+            <div class="fr">
+                <button class="btn btn-xs btn-danger" data-bind="click: $root.DeleteCategory, enable: CanCategoryBeDeleted">Delete category</button>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="panel panel-default mt20 ml40">
+            <div class="panel-heading">
+                Add Forum
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter forum name..." data-bind="textInput: NewForum().Name">
+                    </div>
+                    <button type="submit" class="btn btn-default" data-bind="click: $root.CreateForum, enable: NewForum().IsValid">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="ml40" data-bind="sortable: { data: $data.Forums, afterMove: $root.OrderForums }">
+
+            <div class="panel panel-default moveCursor">
+                <div class="panel-body">
+
+                    <span data-bind="visible: !$root.IsForumSelected($data)">
+                        <a href="#" title="Edit name" class="bold" data-bind="text: Name, click: $root.SelectForum"></a>
+                    </span>
+
+                    <div data-bind="visible: $root.IsForumSelected($data)">
+
+                        <div class="fl">
+                            <div class="mb20">
+                                <div class="mb10">
+                                    <b>Name:</b>
+                                </div>
+                                <form role="form" class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-sm" data-bind="value: Name" placeholder="Enter forum name..."/>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm" data-bind="click: $root.RenameForum">Rename</button>
+                                </form>
+                            </div>
+
+                            <div class="mb10">
+                                <b>Forum Access Roles:</b>
+                            </div>
+                            <div class="mt10" data-bind="visible: AccessRoles().length === 0">
+                                <i>None - Add some below</i>
+                            </div>
+                            <ul class="mt10" data-bind="foreach: AccessRoles">
+                                <li><span data-bind="text: $data.Role"></span> (<a href="javascript:void(0);" data-bind="click: function() { $root.RemoveAccessRole($data); }">remove</a>)</li>
+                            </ul>
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" class="form-control input-sm" placeholder="Role name..." data-bind="textInput: $root.NewForumAccessRole().Role">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm" data-bind="click: $root.AddForumAccessRole">Add Role</button>
+                            </form>
+
+                            <div class="mt20 mb10">
+                                <b>Forum Post Roles:</b>
+                            </div>
+                            <div class="mt10" data-bind="visible: PostRoles().length === 0">
+                                <i>None - Add some below</i>
+                            </div>
+                            <ul class="mt10" data-bind="foreach: PostRoles">
+                                <li><span data-bind="text: $data.Role"></span> (<a href="javascript:void(0);" data-bind="click: function() { $root.RemovePostRole($data); }">remove</a>)</li>
+                            </ul>
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" class="form-control input-sm" placeholder="Role name..." data-bind="textInput: $root.NewForumPostRole().Role">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm" data-bind="click: $root.AddForumPostRole">Add Role</button>
+                            </form>
+
+                            <div class="mt20">
+                                <button class="btn btn-xs btn-danger" data-bind="click: $root.DeleteForum, enable: CanForumBeDeleted">Delete forum</button>
+                            </div>
+
+                        </div>
+
+                        <div class="fr">
+                            <button class="btn btn-link" data-bind="click: $root.DeselectForum">cancel</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/admin/structure")
+}

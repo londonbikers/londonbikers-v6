@@ -1,0 +1,24 @@
+﻿<script type="text/html" id="forum-structure-phone">
+
+    <!-- ko foreach: Categories -->
+    <table class="table mt10">
+        <thead>
+            <tr>
+                <th class="category-name"><a href="#" data-bind="attr: { href: GetUrl }, text: Name"></a></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: $data.Forums">
+            <tr>
+                <td class="v-align">
+                    <b class="forum-name medium-2"><a href="#" data-bind="attr: { href: GetUrl }, text: Name"></a></b>
+                    <div class="mt5 lowlight">
+                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <span data-bind="html: GetFriendlyLastUpdated" class="mr5"></span>
+                        &middot; <span class="ml5" data-bind="html: GetFriendlyStats"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- /ko -->
+
+</script>

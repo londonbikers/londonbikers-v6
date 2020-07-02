@@ -1,0 +1,35 @@
+﻿<script type="text/html" id="latest-topic-headers-desktop">
+    <table class="table mt10" id="headers">
+        <thead class="text-uppercase small light">
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Contributors</th>
+                <th class="hidden-xs hidden-sm">Replies</th>
+                <th class="hidden-xs hidden-sm">Updated</th>
+                <th class="hidden-xs hidden-sm">Posted in</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: Topics">
+            <tr>
+                <td>&nbsp;</td>
+                <td class="text-align-right pt11"><span data-bind="html: window.GetTopicIconsHtml($data)"></span></td>
+                <td class="topic-name index-text">
+                    <span data-bind="html: window.GetTopicAdditionalIconsHtml($data), css: { light: !IsNew(), lowlight: IsNew(), lowlight: IsNew() }"></span>
+                    <a data-bind="attr: { href: GetUrl }, css: { 'topic-name-read': IsNew() === false, 'topic-name-has-updates': HasNewReplies() === true }, text: Subject"></a>
+                </td>
+                <td nowrap="nowrap">
+                    <!-- ko foreach: ProminentUsers -->
+                    <a data-bind="attr: { href: window.GetUserProfileUrl($data.UserName), title: $data.UserName + ' - ' + $data.Reason }, html: window.GetUserProfileGraphic('small', $data.UserName, $data.ProfileFileStoreId)"></a>
+                    <!-- /ko -->
+                </td>
+                <td data-bind="text: GetFriendlyReplyCount" class="hidden-xs hidden-sm bold lowlight pt12"></td>
+                <td data-bind="text: GetFriendlyUpdated" class="hidden-xs hidden-sm pt12" nowrap="nowrap"></td>
+                <td class="hidden-xs hidden-sm pt12" nowrap="nowrap"><a data-bind="attr: { href: GetForumUrl }, text: ForumName" class="hidden-xs hidden-sm"></a></td>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+</script>

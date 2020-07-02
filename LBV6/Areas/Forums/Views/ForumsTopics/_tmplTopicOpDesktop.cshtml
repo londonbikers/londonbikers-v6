@@ -1,0 +1,126 @@
+﻿<script type="text/html" id="topic-op-desktop">
+
+    <div class="content-frame content-frame-unpadded mb20 mt20 post-container">
+
+        <div class="gallery-header br3-nb" style="display:none;" data-bind="visible: Page() ===  1 && Topic().IsGallery()">
+            LB Photo Gallery
+        </div>
+
+        <div class="p20">
+            <div class="text-center">
+                <h1 data-bind="text: Topic().Subject()"></h1>
+                <div class="mt5 light">
+                    Posted in:
+                    <a data-bind="attr: { href: Topic().GetCategoryUrl }, text: Topic().CategoryName"></a> /
+                    <a data-bind="attr: { href: Topic().GetForumUrl }, text: Topic().ForumName"></a>
+                </div>
+            </div>
+            <div class="text-center mt10" data-bind="visible: ShowFollowControl" style="display: none">
+                <button id="follow-topic-btn" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="left" title="Get reply notifications" data-bind="click: ToggleSubscribeToTopic">follow topic</button>
+            </div>
+        </div>
+
+        <hr class="compact" />
+
+        <div class="pl20 pr20 pt10 pb10">
+
+            <div class="text-center pb20" style="display: none;" data-bind="visible: Page() > 1">
+                Started by <b><a data-bind="text: Topic().UserName, attr: { href: window.GetUserProfileUrl(Topic().UserName()) }"></a></b> on <span data-bind="text: Topic().GetFriendlyCreated"></span>
+            </div>
+
+            <div style="display: none;" data-bind="visible: Page() === 1">
+
+                <div class="fl">
+                    <a data-bind="attr: { href: window.GetUserProfileUrl(Topic().UserName()) }, html: window.GetUserProfileGraphic('medium', Topic().UserName(), Topic().ProfileFileStoreId()), visible: !Topic().IsGallery()" style="display:none;"></a>
+                    <div class="ml5 inline v-align">
+                        <a data-bind="text: Topic().UserName, attr: { href: window.GetUserProfileUrl(Topic().UserName()) }, css: { bold: !Topic().IsGallery(), light: Topic().IsGallery() }"></a>
+                        <span class="mt5 light small" data-bind="visible: !window.IsNullOrEmpty(Topic().UserTagline()), text: '- ' + Topic().UserTagline()"></span>
+                        <div class="mt5 light small">
+                            <span class="glyphicon glyphicon-time"></span>
+                            <span data-bind="attr: { title: Topic().GetFriendlyCreated }, text: Topic().GetRelativeCreated"></span>
+                            <span data-bind="visible: Topic().EditedOn() != null">
+                                - <span data-bind="attr: { title: Topic().GetFriendlyEditedOn }">Edited</span>
+                            </span>
+                            <span data-bind="visible: window.IsUserLoggedIn() && !Topic().IsGallery()" style="display:none;">
+                                - <a href="javascript:void(0);" class="light" data-bind="click: function(){ $root.QuotePost(Topic) }">Quote</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fr" data-bind="visible: Topic().CanUserEditPost() || window.IsUserLoggedIn() && window._user.IsModerator">
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                            <li data-bind="visible: Topic().CanUserEditPost()"><a href="javascript:void(0);" class="light" data-bind="click: function(){ ShowEditPostModal(Topic()) }">Edit Post</a></li>
+                            <li data-bind="visible: Topic().CanUserEditPost() && window.IsUserLoggedIn() && window._user.IsModerator" role="separator" class="divider"></li>
+                            <li data-bind="visible: window.IsUserLoggedIn() && window._user.IsModerator"><a href="javascript:void(0);" class="light" data-bind="click: function(){ ShowModerationModal(Topic()) }">Moderate</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+                <div class="mt20 break-long-links" data-bind="visible: !window.IsNullOrEmpty(Topic().Content()), html: Topic().GetFormattedContent, css: { pb5: Topic().Photos().length === 0 } " style="display: none"></div>
+
+                <div data-bind="visible: Topic().Attachments().length > 0, foreach: Topic().Attachments" style="display: none">
+                    <div class="mt20 max800">
+                        <div class="img-responsive">
+                            <a target="_blank" data-bind="attr: { href:Url }"><img data-bind="attr: { src:Url }" class="br3" /></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="grid mt10" data-bind="visible: Page() ===  1 && Topic().Photos().length >= 3, foreach: Topic().Photos, bindMasonry: Topic().Photos" style="display: none">
+            <div class="grid-item" data-bind="attr: { 'data-src': window.GetPhotoUrl($data.FilestoreId, screen.width, screen.height) }" data-sub-html="#photo-info-inner">
+                <a class="hover-effect" href="#">
+                    <img data-bind="attr: { src: window.GetPhotoUrl($data.FilestoreId, 400) }" />
+                    <div class="hover-effect-overlay" data-bind="visible: $data.Comments.length > 0 || !IsNullOrEmpty($data.Caption())">
+                        <div class="hover-effect-overlay-inner">
+                            <span data-bind="visible: $data.Comments().length > 0">
+                                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <span data-bind="text: $data.Comments().length"></span> <span class="light">&middot;</span>
+                            </span>
+                            <span data-bind="text: $data.Caption"></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="p20" style="display:none;" data-bind="visible: Page() ===  1 && Topic().IsGallery()">
+            <div class="panel panel-default">
+                <div class="panel-body small">
+                    This photo gallery has been produced by/for londonbikers.com. All photos are copyrighted to the photographer and must not be reused without license or permission. Photos are by our own in-house photographers or supplied from community submissions. Photos can be licensed upon request in most cases.
+                </div>
+            </div>
+        </div>
+
+        <div data-bind="visible: Page() === 1 && Topic().Photos().length > 0 && Topic().Photos().length < 3, foreach: Topic().Photos, bindSmallPhotoSequence: Topic().Photos" style="display: none">
+            <div class="photo-back" data-bind="css: { 'mt20': $index() > 0, 'mt15': $index() === 0 && window.IsNullOrEmpty($root.Topic().Content()) }">
+                <div class="topic-img-responsive">
+                    <a data-bind="attr: { href: window.GetPhotoUrl($data.FilestoreId, screen.width, screen.height) }" class="small-sequence-item-link" data-sub-html="#photo-info-inner">
+                        <img data-bind="css: { 'br3-nt': $index() === ($root.Topic().Photos().length - 1) && $data.Width >= 1200 }, attr: { src: window.GetPhotoUrl($data.FilestoreId, 1200, 900) }" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pl20 pr20 pb20" data-bind="visible: Page() ===  1 && Topic().ModerationHistoryItems().length > 0, css: { 'mt20': Topic().Photos().length > 0 }" style="display: none">
+            <div class="bs-callout bs-callout-warning small">
+                <div class="mb5">
+                    <b>This post has been moderated:</b>
+                </div>
+                <!-- ko foreach: Topic().ModerationHistoryItems -->
+                <span data-bind="text:Type"></span> by <span data-bind="text:ModeratorUserName"></span>. Reason: <i>"<span data-bind="html: window.FormatContent(Reason)"></span>"</i><br />
+                <!-- /ko -->
+            </div>
+        </div>
+
+    </div>
+
+</script>

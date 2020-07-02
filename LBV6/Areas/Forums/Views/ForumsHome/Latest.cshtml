@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Latest Posts";
+    ViewBag.Description = "The latest posts being discussed.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowForumTopNav = true;
+}
+
+<div class="center-column">
+
+    <div class="content-frame content-frame-unpadded mt20">
+        
+        <div class="pt20 pr20 pl20">
+
+            <div class="text-center mb20">
+                <b>Latest</b> <span class="light pl10 pr10">|</span> <a href="/forums/popular">Popular</a> <span class="light pl10 pr10">|</span> <a href="/forums/browse">Browse</a>
+            </div>
+
+            <div class="text-center">
+                <div class="latest-pager">
+                    <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.first">First</button>
+                    <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.previous">Prev</button>
+                    <span class="ml10 mr10 hide-under-400">
+                        Page <span data-bind="text: NumberWithCommas(Topics.pager.page())"></span> <span class="hide-small">of <span data-bind="text: NumberWithCommas(Topics.pager.totalPages())"></span></span>
+                    </span>
+                    <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.next">Next</button>
+                    <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.last">Last</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div data-bind="template: { name: GetTopicsTemplateName }"></div>
+
+        <div class="text-center p20">
+            <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.first">First</button>
+            <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.previous">Prev</button>
+            <span class="ml10 mr10 hide-under-400">
+                Page <span data-bind="text: NumberWithCommas(Topics.pager.page())"></span> <span class="hide-small">of <span data-bind="text: NumberWithCommas(Topics.pager.totalPages())"></span></span>
+            </span>
+            <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.next">Next</button>
+            <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.last">Last</button>
+        </div>
+
+    </div>
+
+    @Html.Partial("_tmplLatestTopicHeadersDesktop")
+    @Html.Partial("_tmplLatestTopicHeadersPhone")
+
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/forums/latest_topics")
+}

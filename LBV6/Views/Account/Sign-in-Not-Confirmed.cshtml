@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Not yet confirmed";
+    ViewBag.ShowAuthControls = false;
+}
+
+<div class="center-column">
+    <div class="content-frame mt20">
+        <h2>@ViewBag.Title</h2>
+        <div class="pt10">
+            Hold-up! Your e-mail address hasn't been confirmed yet. This could be because of the following:
+        </div>
+
+        <ol class="mt20">
+            <li>You've recently registered and not yet confirmed your e-mail address</li>
+            <li class="mt5">You've changed your email address and not yet confirmed it</li>
+            <li class="mt5">You're an existing member who hasn't yet confirmed their e-mail address as we've only recently started doing this</li>
+        </ol>
+
+        <div class="alert alert-warning alert-dismissible mt20" role="alert">
+            <b>@Html.ActionLink("Click here", "resend-confirmation-link", "account")</b> for us to send out a new link so you can confirm your e-mail address and sign-in.
+        </div>
+
+    </div>
+</div>

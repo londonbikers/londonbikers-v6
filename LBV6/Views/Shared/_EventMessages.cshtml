@@ -1,0 +1,21 @@
+﻿@{
+    var em = Helpers.GetEventMessage();
+    if (em.HasValue)
+    {
+        var notificationType = "info";
+        switch (em.Value.Type)
+        {
+            case Helpers.EventMessageType.Error:
+                notificationType = "error";
+                break;
+            case Helpers.EventMessageType.Success:
+                notificationType = "success";
+                break;
+        }
+        <script type="text/javascript">
+            $(document).ready(function () {
+                ShowEventMessage('@notificationType', '<b>@em.Value.Title</b> - @em.Value.Content');
+            });
+        </script>
+    }
+}

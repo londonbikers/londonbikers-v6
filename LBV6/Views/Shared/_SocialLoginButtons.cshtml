@@ -1,0 +1,9 @@
+﻿@{
+    var returnUrl = string.Empty;
+}
+@using (Html.BeginForm("external-login", "account", new { area = "" }, FormMethod.Post, new { ReturnUrl = returnUrl }))
+{
+    @Html.AntiForgeryToken()
+    <button id="fb-login-btn" class="button-bg-saturate-transition" style="background-image: url(/content/svg/facebook_login.svg);" type="submit" name="provider" value="Facebook"></button>
+    <button class="button-bg-saturate-transition" style="background-image: url(/content/svg/google_login.svg);" type="submit" name="provider" value="GooglePlus"></button>
+}

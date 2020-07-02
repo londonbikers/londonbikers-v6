@@ -1,0 +1,7 @@
+﻿<p>
+	<b>{0}</b>, we need to confirm your e-mail address. If you signed-up to londonbikers then please click the link below. If you didn't, you can safely ignore this email and nothing bad will happen.
+</p>
+<p>
+	Confirmation link:<br />
+	<a href="{1}" target="_blank" style="color: #fff; text-decoration: underline; font-weight: bold;">{1}</a>
+</p>

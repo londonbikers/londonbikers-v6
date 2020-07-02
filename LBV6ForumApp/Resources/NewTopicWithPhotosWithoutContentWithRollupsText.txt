@@ -1,0 +1,10 @@
+﻿{0}, there's been {1} new posts in a forum you're following since we last notified you:
+
+{2} / {3}
+
+The last post was: {4}
+
+{5} posted a photo.
+
+See the whole post at:
+{9}

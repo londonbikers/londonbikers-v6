@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowForumTopNav = true;
+}
+
+<div class="center-column">
+    <div class="content-frame content-frame-unpadded mt20">
+        <div class="large text-center p20" data-bind="text: Category.Name"></div>
+        <div data-bind="visible: !IsNullOrEmpty(Category.Description())">
+            <hr class="light no-margin"/>
+            <div class="text-center p20" data-bind="text: Category.Description"></div>  
+        </div>
+        <div data-bind="template: { name: GetStructureTemplateName }"></div>
+    </div>
+</div>
+
+@Html.Partial("_tmplForumCategoryStructureDesktop")
+@Html.Partial("_tmplForumCategoryStructurePhone")
+
+@section scripts
+{
+    <script language="javascript">
+        var _categoryId = @ViewBag.CategoryId;
+    </script>
+    @Scripts.Render("~/bundles/forums/category")
+}

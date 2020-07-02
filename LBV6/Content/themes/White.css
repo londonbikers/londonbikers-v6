@@ -1,0 +1,342 @@
+﻿h1,h2,h3,h4,h5,h6 {
+    font-weight: 500;
+    margin: 0 0 10px 0;
+    color: #555;
+    line-height: 1.3em;
+}
+.standout {
+    font-weight: 600;
+}
+
+.icon-link { color: #999; }
+.icon-link:hover { color: #333; }
+
+    .badged-link {
+        padding-right: 0 !important;
+    }
+
+    .badged-link:hover .badge {
+        background-color: #333;
+        color: #fff;
+    }
+
+    #logo-splash img {
+        margin-top: 20px;
+        height: 35px;
+    }
+
+    #header-profile-pic {
+        position: relative;
+        top: 2px;
+        width: 30px;
+        height: 30px;
+    }
+
+    @media (max-width: 767px) {
+        #header-profile-pic {
+            position: static !important;
+            display: inline-block !important;
+            margin-top: -5px;
+        }    
+    }
+
+    #header-profile-pic img {
+        border: 2px solid #fff;
+    }
+
+    #header-profile-pic img:hover {
+        border: 2px solid #000 !important;
+    }
+
+    header.regular .forum-top-nav-text {
+        text-transform: uppercase;
+        font-size: 0.9em;
+    }
+
+    .header-icon-link {
+        padding: 10px;
+        font-size: 1.2em;
+    }
+
+    .header-rhs-icon {
+        position: relative;
+        top: 4px;
+    }
+
+    .header-rhs-icon-anon {
+        position: relative;
+        top: 8px;
+    }
+
+    @media (max-width: 767px) {
+        .header-icon-link {
+            position: relative;
+            top: 5px;
+            font-size: 1.5em;
+        }
+    }
+
+    header.regular .dropdown-menu a {
+        color: #000000;
+    }
+
+    @media (min-width: 350px) {
+        #logo-splash img {
+            height: 50px;
+        }
+    }
+    @media (min-width: 800px) {
+        #logo-splash img {
+            height: 100px;
+        }
+    }
+
+#sign-in-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 80px 10px 20px 10px;
+    background-color: #ffe17b;
+    background-color: #333;
+    color: #444;
+    color: #999;
+    text-align: center;
+}
+    div.sign-in-bar-forums {
+        padding-top: 120px !important;
+    }
+    #sign-in-bar a {
+        font-weight: bold;
+        color: #444;
+        color: #999;
+    }
+    #sign-in-bar a:hover {
+         color: #BA4E4C;
+         color: #d9534f;
+    }
+
+nav, nav a {
+    color: #d3d3d3;
+    text-transform: uppercase;
+}
+#user-area-btn  {
+    color: #999 !important;
+}
+#user-area-btn:hover  {
+    color: #000 !important;
+}
+
+/* don't show the username if the screen is tiny (e.g. portrait phone) otherwise it'll cover the logo */
+@media (max-width: 500px) {
+    #username {
+        display: none;
+    }
+    #logo img {
+        margin-top: 3px;
+        height: 30px;
+    }
+}
+@media (max-width: 320px) {
+    #logo img {
+        margin-top: 5px;
+        height: 25px;
+    }
+}
+
+.splash-standout a {
+    color: #ccc;
+}
+
+div.content-frame-alt-bg {
+    color: #333;
+    background-color: #f5f5f5;
+}
+    div.content-frame-alt-bg-top-border {
+        border-top: 1px solid #e2e2e2;
+    }
+    div.content-frame-alt-bg-bottom-border {
+        border-bottom: 1px solid #e2e2e2;
+    }
+    div.content-frame-alt-bg a {
+        color: #333;
+    }
+    div.content-frame-alt-bg a:hover {
+        color: #BA4E4C;
+    }
+
+div.content-frame-colour-1 {
+    color: #416f86;
+    background-color: #8cd8ff;
+}
+    div.content-frame-colour-1 h1,
+    div.content-frame-colour-1 h2,
+    div.content-frame-colour-1 h3,
+    div.content-frame-colour-1 h4,
+    div.content-frame-colour-1 h5,
+    div.content-frame-colour-1 h6{
+        color: #416f86;
+    }
+    div.content-frame-colour-1 a {
+        color: #fff;
+        color: #333;
+    }
+    div.content-frame-colour-1 a:hover {
+        color: #BA4E4C;
+    }
+
+div.content-frame-dark {
+    background: #f5f5f5;
+    padding: 20px;
+}
+    div.content-frame-dark .light {
+        color: #bbb;
+    }
+    div.content-frame-dark .btn-outline {
+        border-color: #ccc;
+    }
+    div.content-frame-dark div.alert-warning {
+        border-color: #e8d4aa;
+    }
+    div.content-frame-bottom {
+        border-bottom: 1px solid #ebebeb;
+    }
+    div.content-frame-compact {
+        padding: 0 20px 0 20px;
+    }
+    div.content-frame-short {
+        padding: 10px 20px 10px 20px;
+    }
+
+a:hover, .category-name a:hover,.forum-name a:hover {
+    color: #BA4E4C;
+    text-decoration: none;
+}
+footer, footer a {
+    color: #bbb;
+}
+
+div.splash-text-bg a { color: #bbb; }
+div.splash-text-bg a:hover { color: #ff0000; }
+div.splash-text-bg {
+    color: #bbb;
+    display: inline-block;
+    padding: 5px;
+    background-color:#000000;
+    background-color:rgba(0, 0, 0, 0.4);
+}
+
+div.light-bread-crumb {
+    color: #aaa;
+}
+    div.light-bread-crumb a {
+        color: #aaa !important;
+    }
+    div.light-bread-crumb a:hover {
+        color: #BA4E4C !important;
+    }
+    div.light-bread-crumb span {
+        color: #ccc;
+    }
+
+div.category {
+    padding-top: 10px;
+}
+div.category-head {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding: 0 10px 10px 0;
+}
+
+    .category-name, .category-name a {
+        color: #999;
+        font-weight: 500;
+        font-weight: 600;
+    }
+    @media (min-width: 768px) {
+        .forum-name {
+            padding-left: 20px !important;
+        }
+    }
+
+div.moderation-panel {
+    color: #777;
+    padding: 20px;
+    background-color: #fcfcfc;
+    border: 1px solid #eaeaea;
+    font-size: 0.9em;
+    border-radius: 2px;
+}
+    div.moderation-panel ul {
+        margin-bottom: 0;
+    }
+
+.avatar-small {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 2px;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+.avatar-header {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 3px;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+.avatar-medium {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 12px;
+    font-size: 1.4em;
+    vertical-align: middle;
+}
+
+.avatar-1 {
+    background-color:#333 !important;
+    color: #fff;
+}
+
+.modal-coloured .modal-content {
+    color: #fff;
+    font-weight: bold;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7abcff+0,60abf8+44,4096ee+100 */
+    background: #7abcff; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #7abcff 0, #60abf8 44%, #4096ee 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #7abcff 0,#60abf8 44%, #4096ee 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #7abcff 0, #60abf8 44%,#4096ee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */*/
+}
+
+.modal-coloured .modal-content a {
+    color: #fff;
+    text-decoration: underline !important;
+}
+
+.modal-coloured .modal-content a:hover {
+    color: #104b86;
+}
+
+.modal-coloured .modal-header {
+    border-bottom: 1px solid #3a8dd4;
+}
+
+.modal-coloured .modal-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #d6eaff;
+}

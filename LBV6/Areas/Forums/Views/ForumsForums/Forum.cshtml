@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowForumTopNav = true;
+}
+
+<div class="center-column">
+
+    <div class="content-frame content-frame-unpadded mt20">
+            
+        <div class="text-center">
+            
+            <div class="large pt20">
+                <span class="light">
+                    <a data-bind="attr: { href: Forum.GetCategoryUrl }, text: Forum.CategoryName"></a> /
+                </span>
+                <span data-bind="text: Forum.Name"></span>
+            </div>
+
+            <div id="follow-forum-div" class="hide mt5 mb20">
+                <button id="follow-forum-btn" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="right" title="Get new topic notifications" data-bind="click: ToggleSubscribeToForum">follow forum</button>
+            </div>
+
+            <div data-bind="visible: !IsNullOrEmpty(Forum.Description())">
+                <hr class="light no-margin"/>
+                <div class="text-center p20" data-bind="text: Forum.Description"></div>
+            </div>
+
+        </div>
+
+        <div class="text-center mb10">
+            <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.first">First</button>
+            <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.previous">Prev</button>
+            <span class="ml10 mr10 hide-under-400">
+                Page <span data-bind="text: NumberWithCommas(Topics.pager.page())"></span> <span id="forum-pager-extra-info" class="hide-small">of <span data-bind="text: NumberWithCommas(Topics.pager.totalPages())"></span></span>
+            </span>
+            <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.next">Next</button>
+            <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.last">Last</button>
+        </div>
+
+        <div data-bind="template: { name: GetTopicsTemplateName }"></div>
+
+        <div class="p20">
+            <div class="text-center">
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.first">First</button>
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.previous">Prev</button>
+                <span class="ml10 mr10 hide-under-400">
+                    Page <span data-bind="text: NumberWithCommas(Topics.pager.page())"></span> <span class="hide-small">of <span data-bind="text: NumberWithCommas(Topics.pager.totalPages())"></span></span>
+                </span>
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.next">Next</button>
+                <button class="btn btn-default btn-sm" data-bind="click: Topics.pager.last">Last</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@Html.Partial("_tmplForumTopicHeadersPhone")
+@Html.Partial("_tmplForumTopicHeadersDesktop")
+
+@section script
+{
+    var _forumId = @ViewBag.ForumId;
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/forums/forum")
+}

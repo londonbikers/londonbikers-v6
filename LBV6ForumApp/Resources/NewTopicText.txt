@@ -1,0 +1,11 @@
+﻿{0}, someone's posted in a forum you're following:
+
+{1} / {2}
+
+In: {3}
+
+{4} wrote:
+"{5}"
+
+See the whole post at:
+{6}

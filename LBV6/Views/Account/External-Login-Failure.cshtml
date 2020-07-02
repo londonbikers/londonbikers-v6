@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Sign-in Failure";
+    ViewBag.ShowAuthControls = false;
+}
+
+<div class="center-column">
+    <div class="content-frame mt20">
+        <h2>Cannot Sign-in</h2>
+        <hr class="compact" />
+        <div class="large">
+            <p>Sorry we can't sign you in. There was a problem with the external identity provider.</p>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/_shared")
+}

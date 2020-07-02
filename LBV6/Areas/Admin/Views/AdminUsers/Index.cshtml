@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Users";
+}
+
+<h3>Users</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Search</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Seach for..." data-bind="textInput: SearchTerm">
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-bind="click: SearchForUsers">Search</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Stats</h3>
+            </div>
+            <div class="panel-body">
+                Total: <span data-bind="text: NumberWithCommas(TotalUsers())"></span><br />
+                Enabled: <span data-bind="text: NumberWithCommas(EnabledUsers())"></span><br />
+                Suspended: <span data-bind="text: NumberWithCommas(SuspendedUsers())"></span><br />
+                Banned: <span data-bind="text: NumberWithCommas(BannedUsers())"></span><br />
+                Confirmed: <span data-bind="text: NumberWithCommas(ConfirmedUsers())"></span><br />
+                Facebook Logins: <span data-bind="text: NumberWithCommas(FacebookLogins())"></span><br />
+                Google Logins: <span data-bind="text: NumberWithCommas(GoogleLogins())"></span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="latest-pager text-center">
+    <button class="btn btn-default btn-sm" data-bind="click: Users.pager.first">First</button>
+    <button class="btn btn-default btn-sm" data-bind="click: Users.pager.previous">Prev</button>
+    <span class="ml10 mr10">
+        Page <span data-bind="text: NumberWithCommas(Users.pager.page())"></span> <span class="hide-small">of <span data-bind="text: NumberWithCommas(Users.pager.totalPages())"></span></span>
+    </span>
+    <button class="btn btn-default btn-sm" data-bind="click: Users.pager.next">Next</button>
+    <button class="btn btn-default btn-sm" data-bind="click: Users.pager.last">Last</button>
+</div>
+
+<div class="clear"></div>
+<hr class="compact" />
+
+<table class="table mt10" id="headers">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Confirmed</th>
+            <th>Posts</th>
+            <th>Logins</th>
+            <th>Created</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: Users">
+        <tr>
+            <td data-bind="css: { 'bg-warning': Status == 1, 'bg-danger': Status == 2 }"><a data-bind="attr: { href: 'users/'+Id }, html: window.GetUserProfileGraphic('small', UserName, ProfileFileStoreId)"></a></td>
+            <td data-bind="css: { 'bg-warning': Status == 1, 'bg-danger': Status == 2 }"><a data-bind="text: UserName, attr: { href: 'users/detail/' + Id }" /></td>
+            <td data-bind="css: { 'bg-warning': Status == 1, 'bg-danger': Status == 2 }, text: $root.GetName(FirstName, LastName)"></td>
+            <td data-bind="css: { 'bg-warning': Status == 1, 'bg-danger': Status == 2 }"><a data-bind="text: Email, attr: { href: 'mailto:' + Email }" /></td>
+            <td data-bind="css: { 'bg-warning': Status == 1, 'bg-danger': Status == 2 }, html: $root.GetEmailConfirmedHtml(EmailConfirmed)"></td>
+            <td data-bind="css: { 'bg-warning': Status == 1, 'bg-danger': Status == 2 }, html: $root.GetPostsHtml(TopicsCount, RepliesCount)"></td>
+            <td data-bind="css: { 'bg-warning': Status == 1, 'bg-danger': Status == 2 }, text: Logins.join(', ')"></td>
+            <td data-bind="css: { 'bg-warning': Status == 1, 'bg-danger': Status == 2 }, text: moment(Created).format('ll')"></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="text-center">
+    <button class="btn btn-default btn-sm" data-bind="click: Users.pager.first">First</button>
+    <button class="btn btn-default btn-sm" data-bind="click: Users.pager.previous">Prev</button>
+    <span class="ml10 mr10">
+        Page <span data-bind="text: NumberWithCommas(Users.pager.page())"></span> <span class="hide-small">of <span data-bind="text: NumberWithCommas(Users.pager.totalPages())"></span></span>
+    </span>
+    <button class="btn btn-default btn-sm" data-bind="click: Users.pager.next">Next</button>
+    <button class="btn btn-default btn-sm" data-bind="click: Users.pager.last">Last</button>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/admin/users")
+}

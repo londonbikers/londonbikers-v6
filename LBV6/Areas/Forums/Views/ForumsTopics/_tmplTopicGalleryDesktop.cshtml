@@ -1,0 +1,133 @@
+﻿<div style="display: none;" id="photo-info-inner">
+    <div class="lg-comments-container">
+        <div class="lg-comments-container-inner br3">
+
+            <div class="lg-comments-container-inner-header">
+                
+                <div style="display: none;" class="large mb10" data-bind="visible: !IsNullOrEmpty(Photo.Caption()) && !IsShowingEditCaptionForm() && !IsEditingCaption(), text: Photo.Caption, css: { 'text-editable-2': IsUserPhotoOwner() }, click: ShowEditCaptionForm"></div>
+                
+                <div style="display: none;" data-bind="visible: IsUserPhotoOwner() && IsNullOrEmpty(Photo.Caption()) && !IsShowingEditCaptionForm()" class="mt5">
+                    <a href="#" class="small light light-standout" data-bind="click: ShowAddCaptionForm">Add caption</a>
+                </div>
+                
+                <div style="display: none;" data-bind="visible: IsShowingEditCaptionForm" class="mt5 mb20">
+                    <input type="text" class="form-control input-sm photo-caption-input" placeholder="Add caption..." data-bind="textInput: Photo.Caption, enable: !IsSavingCaption()">
+                    <div class="mt5">
+                        <button class="btn btn-primary btn-sm w100pc" type="submit" data-bind="click: SaveCaption, enable: !IsSavingCaption()">Save Caption</button>
+                    </div>
+                </div>
+
+                <div class="fl small light">
+                    <div style="display: none;" data-bind="visible: !Post.IsGallery()">
+                        <a data-bind="attr: { href: window.GetUserProfileUrl(Post.UserName()) }, html: window.GetUserProfileGraphic('small', Post.UserName(), Post.ProfileFileStoreId())" class="v-align"></a>
+                        <a data-bind="text: Post.UserName(), attr: { href: window.GetUserProfileUrl(Post.UserName()) }" class="inline mt5 v-align"></a>
+                    </div>
+                    <div style="display: none;" data-bind="visible: Post.IsGallery() && !window.IsNullOrEmpty(Photo.Credit), attr: { title: 'Copyright retained by ' + Photo.Credit }">
+                        <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
+                        <span data-bind="text: Photo.Credit"></span>
+                    </div>
+                </div>
+                <div class="fr">
+                    
+                    <div class="small light inline mr5" data-bind="attr: { title: window.GetShortDateTime(Photo.Created) }, css: { mt5: Post.UserName() !== 'londonbikers.com' }">
+                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                        <span data-bind="text: window.GetRelativeDate(Photo.Created)"></span>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="javascript:void(0);" data-bind="click: ReportPhoto">Report Photo</a></li>
+                            <li role="separator" class="divider" data-bind="visible: IsUserPhotoOwner()"></li>
+                            <li><a href="javascript:void(0);" class="text-red" data-bind="visible: IsUserPhotoOwner, click: ShowDeletePhotoConfirmation">Delete Photo</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+                
+                <div class="mt10" style="display: none;" data-bind="visible: ShowDeletePhotoConfirmationBtn">
+                    <button class="btn btn-danger btn-sm w100pc" type="submit" data-bind="click: DeletePhoto, enable: !IsDeletingPhoto()">Delete Photo</button>
+                    <div class="mt5">
+                        <button class="btn btn-default btn-sm w100pc" type="submit" data-bind="click: CancelDeletePhoto, enable: !IsDeletingPhoto()">Cancel</button>    
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="lg-comments-container-inner-poster">
+                @if (!Request.IsAuthenticated)
+                {
+                    <div class="light light-standout small">
+                        <a href="/account/register">Register</a> or <a href="/account/sign-in">Log-in</a> to leave a comment
+                    </div>
+                }
+                else
+                {
+                    <input type="text" class="form-control input-sm photo-comment-input" placeholder="Write your comment..." data-bind="textInput: NewComment().Text, enable: !IsPostingNewComment()">
+                    <div class="mt5">
+                        <button class="btn btn-primary btn-sm w100pc" type="submit" data-bind="click: PostNewComment, enable: IsNewCommentValid">Post Comment</button>
+                    </div>
+                }
+            </div>
+
+            <div class="lg-comments-container-inner-list">
+
+                <div style="display: none;" data-bind="visible: Photo.Comments().length === 0" class="text-center">
+                    <div class="x-large faint mb10">
+                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                    </div>
+                    <div class="light">
+                        Be the first to comment...
+                    </div>
+                </div>
+                
+                <div data-bind="visible: Photo.Comments().length > 0, foreach: Photo.Comments" style="display: none;">
+                    <div class="container-fluid lg-comment">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a data-bind="attr: { href: window.GetUserProfileUrl($data.UserName) }, html: window.GetUserProfileGraphic('header', $data.UserName, $data.ProfileFileStoreId)"></a>
+                            </div>
+                            <div class="col-md-10">
+
+                                <div class="fr" data-bind="visible: IsUserLoggedIn() && ($data.UserId === window._user.Id || window._user.IsModerator)">
+                                    <div class="dropdown">
+                                        <button class="btn btn-xs btn-link btn-link-flush dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="#" data-bind="click: $root.InitiateCommentEditing">Edit comment</a></li>
+                                            <li><a href="#" data-bind="click: $root.InitiateCommentDeletion" class="text-red">Delete comment</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <a data-bind="attr: { href: window.GetUserProfileUrl($data.UserName) }, text: $data.UserName"></a>
+                                <span class="light small">- <span data-bind="text: window.GetRelativeDate($data.Created)"></span></span>
+                                <div data-bind="text: $data.Text, css: { 'light-strike': $root.CommentBeingDeleted() != null && $data.Id === $root.CommentBeingDeleted().Id }, visible: $root.CommentBeingEdited() == null || $root.CommentBeingEdited().Id !== Id"></div>
+                                
+                                <div style="display: none;" data-bind="visible: $root.CommentBeingDeleted() != null && $data.Id === $root.CommentBeingDeleted().Id" class="mt5">
+                                    <button class="btn btn-default btn-sm" data-bind="enable: !$root.CommentIsBeingDeleted(), click: $root.CancelCommentDeletion">Cancel</button>
+                                    <button class="btn btn-danger btn-sm" data-bind="enable: !$root.CommentIsBeingDeleted(), click: $root.DeleteComment">Delete Comment</button>
+                                </div>
+                                
+                                <div style="display: none;" data-bind="visible: $root.CommentBeingEdited() != null && $data.Id === $root.CommentBeingEdited().Id">
+                                    <input type="text" class="form-control input-sm photo-caption-input" placeholder="Your comment..." data-bind="textInput: Text, enable: !$root.CommentIsBeingEdited()">
+                                    <div class="mt5">
+                                        <button class="btn btn-default btn-sm" data-bind="enable: !$root.CommentIsBeingEdited(), click: $root.CancelCommentEditing">Cancel</button>
+                                        <button class="btn btn-primary btn-sm" data-bind="enable: !$root.CommentIsBeingEdited(), click: $root.EditComment">Update Comment</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</div>

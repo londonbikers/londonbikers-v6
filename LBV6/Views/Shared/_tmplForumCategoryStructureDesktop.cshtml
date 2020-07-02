@@ -1,0 +1,20 @@
+﻿<script type="text/html" id="category-structure-desktop">
+    
+    <table class="table mt10">
+        <thead class="text-uppercase small light">
+            <tr>
+                <th></th>
+                <th>Stats</th>
+                <th>Updated</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: Category.Forums">
+            <tr>
+                <td class="forum-name"><b><a href="#" class="bold" data-bind="attr: { href: GetUrl }, text: Name"></a></b></td>
+                <td data-bind="html: GetFriendlyStats" class="mw110"></td>
+                <td data-bind="text: GetFriendlyLastUpdated" class="mw110"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</script>

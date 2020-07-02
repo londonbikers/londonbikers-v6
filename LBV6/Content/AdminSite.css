@@ -1,0 +1,79 @@
+﻿/* --[ ASP.NET DEFAULTS ]----------------------------------------------------- */
+
+body {
+    background-color: #fff;
+    padding: 0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behaviour where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* --[ REUSABLE ]------------------------------------------------------------- */
+
+.ml20 { margin-left: 20px; }
+.ml40 { margin-left: 40px; }
+.mt10 { margin-top: 10px; }
+.mt20 { margin-top: 20px; }
+.mt40 { margin-top: 40px; }
+.mt70 { margin-top: 70px; }
+.mt80 { margin-top: 80px; }
+.mb40 { margin-bottom: 40px; }
+.mb30 { margin-bottom: 30px; }
+.mb20 { margin-bottom: 20px; }
+.mb10 { margin-bottom: 10px; }
+
+.moveCursor { cursor: move; }
+.hide { visibility: hidden; }
+.bold { font-weight: bold; }
+
+.fl { float: left; }
+.fr { float: right; }
+.clear { clear: both; }
+
+.light { color: #ccc; }
+.small { font-size: 0.9em; }
+
+.avatar-small {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 2px;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+.avatar-1 {
+    background-color:#333 !important;
+    color: #fff;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.profile-photo-clickable:hover img, .img-profile-photo:hover {
+    -webkit-filter: brightness(0.7);
+    filter: brightness(0.7);
+    transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -webkit-transition: all .1s ease-in-out;
+}
+.img-profile-photo:hover {
+    border-color: #ccc !important;
+}
+
+.img-profile-photo, .img-profile-photo-static {
+    background-color: #ccc;
+}

@@ -1,0 +1,13 @@
+﻿<script type="text/html" id="post-controls-desktop">
+    
+    <button class="btn btn-default w130" style="display: none" data-bind="visible: !ShowingTopicUploader() && window._enablePhotoUploads, click: function() { ShowTopicUploader() }">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add Photos
+    </button>
+    <button class="btn btn-default w130" style="display: none" data-bind="visible: ShowingTopicUploader(), click: function() { HideTopicUploader() }, enable: !Uploading()">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Cancel
+    </button>
+    <button class="btn btn-primary ml10 w130" data-bind="enable: ReadyToPostTopic() && !Posting(), click: SubmitNewTopic">
+        Post Topic
+    </button>
+
+</script>

@@ -1,0 +1,131 @@
+﻿<script type="text/html" id="topic-replies-desktop">
+
+    <div id="replies" class="content-frame content-frame-unpadded mb10" data-bind="visible: Replies().length > 0" style="display: none">
+
+        <div class="text-center pt20" data-bind="visible: Replies.pager.totalPages() > 1" style="display: none">
+            <button class="btn btn-default btn-sm" data-bind="click: Replies.pager.first">
+                First
+            </button>
+            <button class="btn btn-default btn-sm" data-bind="click: Replies.pager.previous">Prev</button>
+            <span class="ml10 mr10 hide-under-400">
+                Page
+                <span data-bind="text: Replies.pager.page"></span> <span class="hide-small">of <span data-bind="text: Replies.pager.totalPages"></span></span>
+            </span>
+            <button class="btn btn-default btn-sm" data-bind="click: Replies.pager.next">Next</button>
+            <button class="btn btn-default btn-sm" data-bind="click: Replies.pager.last">Last</button>
+            <div class="mt20">
+                <hr class="skinny" />
+            </div>
+        </div>
+
+        <div class="break-long-links" data-bind="foreach: Replies">
+
+            <div data-bind="attr: { id: 'r-' + Id() }" class="post-container">
+
+                <div class="pt20 pl20 pr20 pb5">
+
+                    <div class="fl">
+                        <a data-bind="attr: { href:window.GetUserProfileUrl(UserName()) }, html: window.GetUserProfileGraphic('medium', UserName(), ProfileFileStoreId())"></a>
+                        <div class="ml5 inline v-align">
+                            <b><a data-bind="text: UserName, attr: { href:window.GetUserProfileUrl(UserName()) }"></a></b>
+                            <span class="mt5 light small" data-bind="visible: !window.IsNullOrEmpty(UserTagline()), text: '- ' + UserTagline()"></span>
+                            <div class="mt5 light small">
+                                <span class="glyphicon glyphicon-time"></span>
+                                <span data-bind="attr: { title: GetFriendlyCreated }, text: GetRelativeCreated"></span>
+                                <span data-bind="visible: EditedOn() != null">
+                                    - <span data-bind="attr: { title:GetFriendlyEditedOn }">Edited</span>
+                                </span>
+                                <span data-bind="visible: window.IsUserLoggedIn() && !window.IsNullOrEmpty(Content())">- <a href="javascript:void(0);" class="light" data-bind="click: function(){ $root.QuotePost($data) }">Quote</a></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fr" data-bind="visible: CanUserEditPost() || window.IsUserLoggedIn() && window._user.IsModerator">
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                <li data-bind="visible: CanUserEditPost()"><a href="javascript:void(0);" class="light" data-bind="click: function(){ $root.ShowEditPostModal($data) }">Edit Post</a></li>
+                                <li data-bind="visible: CanUserEditPost() && window.IsUserLoggedIn() && window._user.IsModerator" role="separator" class="divider"></li>
+                                <li data-bind="visible: window.IsUserLoggedIn() && window._user.IsModerator"><a href="javascript:void(0);" class="light" data-bind="click: function(){ $root.ShowModerationModal($data) }">Moderate</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="mt20" data-bind="visible: !window.IsNullOrEmpty(Content()), html: GetFormattedContent" style="display: none"></div>
+
+                    <div data-bind="visible: Attachments().length > 0, foreach: Attachments" style="display: none">
+                        <div class="mt20 max800">
+                            <div class="img-responsive">
+                                <a target="_blank" data-bind="attr: { href:Url }"><img data-bind="attr: { src:Url }" class="br3" /></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="grid" data-bind="visible: Photos().length >= 3, foreach: Photos, bindMasonry: Photos, attr: { id: 'grid-r-' + Id() }" style="display: none">
+                    <div class="grid-item" data-bind="attr: { 'data-src': window.GetPhotoUrl($data.FilestoreId, screen.width, screen.height) }" data-sub-html="#photo-info-inner">
+                        <a class="hover-effect" href="#">
+                            <img data-bind="attr: { src: window.GetPhotoUrl($data.FilestoreId, 400) }" />
+                            <div class="hover-effect-overlay" data-bind="visible: $data.Comments.length > 0 || !IsNullOrEmpty($data.Caption())">
+                                <div class="hover-effect-overlay-inner">
+                                    <span data-bind="visible: $data.Comments().length > 0">
+                                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <span data-bind="text: $data.Comments().length"></span> <span class="light">&middot;</span>
+                                    </span>
+                                    <span data-bind="text: $data.Caption"></span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div data-bind="visible: Photos().length > 0 && Photos().length < 3, foreach: Photos, bindSmallPhotoSequence: Photos" style="display: none">
+                    <div class="photo-back" data-bind="css: { 'mt20': $index() > 0, 'mt15': $index() === 0 && window.IsNullOrEmpty($parent.Content()) }">
+                        <div class="topic-img-responsive">
+                            <a data-bind="attr: { href: window.GetPhotoUrl($data.FilestoreId, screen.width, screen.height) }" class="small-sequence-item-link" data-sub-html="#photo-info-inner">
+                                <img data-bind="css: { 'br3-nt': $index() === ($parent.Photos().length - 1) && $data.Width >= 1200 }, attr: { src: window.GetPhotoUrl($data.FilestoreId, 1200, 900) }"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pl20 pr20 pb20" data-bind="visible: ModerationHistoryItems().length > 0, css: { 'mt20': Photos().length > 0 }" style="display: none">
+                    <div class="bs-callout bs-callout-warning small" >
+                        <div class="mb5">
+                            <b>This post has been moderated:</b>
+                        </div>
+                        <!-- ko foreach: $data.ModerationHistoryItems -->
+                        <span data-bind="text:Type"></span> by <span data-bind="text: ModeratorUserName"></span>. Reason: <i>"<span data-bind="html: window.FormatContent(Reason)"></span>"</i><br />
+                        <!-- /ko -->
+                    </div>
+                </div>
+
+                <div data-bind="visible: $index() < ($root.Replies().length - 1) && Photos().length === 0" style="display: none"><hr class="skinny" /></div>
+
+            </div>
+
+        </div>
+
+        <div class="text-center pb20" data-bind="visible: Replies.pager.totalPages() > 1" style="display: none">
+            <div class="mb20">
+                <hr class="skinny" />
+            </div>
+            <button class="btn btn-default btn-sm" data-bind="click: Replies.pager.first">
+                First
+            </button>
+            <button class="btn btn-default btn-sm" data-bind="click: Replies.pager.previous">Prev</button>
+            <span class="ml10 mr10 hide-under-400">
+                Page
+                <span data-bind="text: Replies.pager.page"></span> <span class="hide-small">of <span data-bind="text: Replies.pager.totalPages"></span></span>
+            </span>
+            <button class="btn btn-default btn-sm" data-bind="click: Replies.pager.next">Next</button>
+            <button class="btn btn-default btn-sm" data-bind="click: Replies.pager.last">Last</button>
+        </div>
+
+    </div>
+
+</script>

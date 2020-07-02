@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.ShowForumTopNav = true;
+}
+
+<div id="profile-header">
+
+    <div id="profile-cover" data-bind="style: { 'background-image': GetCoverUrlCss }, event: { mouseenter: ShowCoverPhotoButton, mouseleave: HideCoverPhotoButton }">
+
+        <div id="profile-cover-overlay" data-bind="css: { 'profile-cover-overlay-visible': HasCoverImage }">
+
+            <div id="profile-cover-controls">
+
+                <div id="cover-photo-uploader" style="display: none;" data-bind="fadeVisible: ShouldShowOwnerControls">
+
+                    <a href="javascript:void(0);" id="btn-upload-cover" class="btn btn-outline-overlay mr10">
+                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> <span class="hide444 text-uppercase small">Change cover photo</span>
+                    </a>
+
+                    <a title="Remove current photo" class="btn btn-outline-overlay" data-bind="click: RemoveCoverPhoto">
+                        <span class="glyphicon glyphicon-trash small" aria-hidden="true"></span>
+                    </a>
+
+                </div>
+
+                <div style="display: none;" data-bind="visible: CanMessageUser">
+                    <a data-bind="attr: { href: '/intercom?nm=1&u=' + Profile().Id }" class="btn btn-outline-overlay">
+                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <span class="hide444 text-uppercase small">Send a message</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="profile-photo-div">
+
+                <div id="profile-photo">
+                    <img id="profile-photo-img" data-bind="attr: { src: window.GetProfilePhotoUrl(Profile().ProfileFileStoreId(), 150) }" class="img-circle"/>
+                </div>
+
+                <div id="profile-photo-text">
+                    <div id="profile-username" data-bind="text: Profile().UserName"></div>
+                    <div id="profile-tagline" style="display: none;" data-bind="visible: !window.IsNullOrEmpty(Profile().Tagline()), text: Profile().Tagline"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="profile-bio">
+        <div class="text-uppercase light pl20 pt20 pr20">About</div>
+
+        <div class="pl20 pr20 pb20 pt10" data-bind="visible: !OwnProfile()">
+            <div style="display: none;" data-bind="visible: !window.IsNullOrEmpty(Profile().GetCleanBiography()), html: Profile().GetCleanBiography"></div>
+            <div style="display: none;" data-bind="visible: window.IsNullOrEmpty(Profile().GetCleanBiography())" class="light p10">
+                ...
+            </div>
+        </div>
+
+        <div class="pl10 pr10 pb10" style="display: none;" data-bind="visible: OwnProfile()">
+            <div style="display: none;" data-bind="visible: !window.IsNullOrEmpty(Profile().GetCleanBiography()) && !EditingBio(), html: Profile().GetCleanBiography, click: EditBio" class="text-editable" data-toggle="tooltip" data-placement="top" title="Edit"></div>
+            <div style="display: none;" data-bind="visible: window.IsNullOrEmpty(Profile().GetCleanBiography()) && !EditingBio(), click: EditBio" class="light p10 text-editable" data-toggle="tooltip" data-placement="top" title="Edit">
+                ...
+            </div>
+            <div style="display: none;" data-bind="visible: EditingBio" class="pt10">
+                <textarea id="profile-bio-editor" class="form-control mw100pc" rows="6" data-bind="textInput: Profile().Biography"></textarea>
+                <div class="pb10 text-center">
+                    <button type="button" class="btn btn-default btn-sm text-center w200 mt10" data-bind="click: CancelEditBio">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-sm text-center w200 mt10" data-bind="click: SaveBioChanges">Save Changes</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="profile-header-stats" class="text-uppercase">
+
+    <div class="profile-stat-box mr10">
+        <div class="profile-stat-metric" data-bind="text: GetJoinedYear"></div>
+        <div class="profile-stat-label small">Member Since</div>
+    </div>
+
+    <div class="profile-stat-box mr10">
+        <div class="profile-stat-metric" data-bind="text: window.NumberWithCommas(Profile().TopicsCount())"></div>
+        <div class="profile-stat-label small">Topics</div>
+    </div>
+
+    <div class="profile-stat-box mr10">
+        <div class="profile-stat-metric" data-bind="text: window.NumberWithCommas(Profile().RepliesCount())"></div>
+        <div class="profile-stat-label small">Replies</div>
+    </div>
+
+    <div class="profile-stat-box">
+        <div class="profile-stat-metric" data-bind="text: window.NumberWithCommas(Profile().PhotosCount())"></div>
+        <div class="profile-stat-label small">Photos</div>
+    </div>
+
+</div>
+
+
+@section script
+{
+    var _payload = @Html.Raw(ViewBag.Payload);
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/profile")
+}

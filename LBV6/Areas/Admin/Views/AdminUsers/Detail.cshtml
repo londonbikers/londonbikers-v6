@@ -1,0 +1,188 @@
+﻿<h2>User: <span data-bind="text: Profile().UserName()"></span></h2>
+
+<div class="row">
+    <div class="col-md-6">
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Status: <span data-bind="text: window.GetStatusName(Profile().Status())"></span></h3>
+            </div>
+            <div class="panel-body" data-bind="css: { 'bg-warning': Profile().Status() == 1, 'bg-danger': Profile().Status() == 2 }">
+                <form role="form" class="form-inline">
+                    <button type="submit" class="btn btn-success btn-sm" data-bind="enable: Profile().Status() != 0 && !SavingStatusChange(), click: function() { ChangeStatus(0); }">Active</button>
+                    <button type="submit" class="btn btn-warning btn-sm" data-bind="enable: Profile().Status() != 1 && !SavingStatusChange(), click: function() { ChangeStatus(1); }">Suspended</button>
+                    <button type="submit" class="btn btn-danger btn-sm" data-bind="enable: Profile().Status() != 2 && !SavingStatusChange(), click: function() { ChangeStatus(2); }">Banned</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Info</h3>
+            </div>
+            <div class="panel-body">
+
+                <dl class="dl-horizontal">
+                    <dt>Joined</dt>
+                    <dd data-bind="text: Profile().GetFriendlyJoined(), attr: { 'title': Profile().Joined }"></dd>
+                    
+                    <dt>Confirmed</dt>
+                    <dd data-bind="text: Profile().EmailConfirmed === true ? 'Yes' : 'No'">...</dd>
+                    
+                    <dt>Visits</dt>
+                    <dd data-bind="text: NumberWithCommas(Profile().VisitsCount)">...</dd>
+                    
+                    <dt>Topics</dt>
+                    <dd data-bind="text: NumberWithCommas(Profile().TopicsCount)">...</dd>
+                    
+                    <dt>Replies</dt>
+                    <dd data-bind="text: NumberWithCommas(Profile().RepliesCount)">...</dd>
+                    
+                    <dt>Photos</dt>
+                    <dd data-bind="text: NumberWithCommas(Profile().PhotosCount)">...</dd>
+                    
+                    <dt>Moderations</dt>
+                    <dd data-bind="text: NumberWithCommas(Profile().ModerationsCount)">...</dd>
+
+                </dl>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<form class="form-horizontal">
+
+    <div class="form-group">
+        <label for="inputUsername" class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputUsername" placeholder="Username" data-bind="textInput: Profile().UserName" style="width: auto !important; display: inline-block;">
+            <button type="submit" class="btn btn-primary" data-bind="click: ChangeUsername, enable: !SavingUsernameChange() && !IsNullOrEmpty(Profile().UserName())">Change Username</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail" placeholder="Email" data-bind="textInput: Profile().Email" style="width: auto !important; display: inline-block;">
+            <button type="submit" class="btn btn-primary" data-bind="click: ChangeEmail, enable: !SavingEmailChange() && !IsNullOrEmpty(Profile().Email())">Change Email</button>
+            <div class="light small mt10">
+                <i>Changing the users email address will require them to confirm it on next login.</i>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputTagline" class="col-sm-2 control-label">Tagline</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputTagline" placeholder="Tagline" data-bind="textInput: Profile().Tagline">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" data-bind="textInput: Profile().FirstName">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" data-bind="textInput: Profile().LastName">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputOccupation" class="col-sm-2 control-label">Occupation</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputOccupation" placeholder="Occupation" data-bind="textInput: Profile().Occupation">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="textareaBiogrpahy" class="col-sm-2 control-label">Biography</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" rows="3" id="textareaBiogrpahy" placeholder="Biography" data-bind="textInput: Profile().Biography"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary" data-bind="click: SaveAttributeChanges; enable: !SavingProfileChanges">Save Changes</button>
+        </div>
+    </div>
+
+</form>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="verified-checkbox" class="col-sm-2 control-label">Verified</label>
+        <div class="col-sm-10">
+            <input type="checkbox" data-toggle="toggle" id="verified-checkbox" />
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Profile Photo</h3>
+            </div>
+            <div class="panel-body">
+
+                <div style="display:none" data-bind="visible: IsNullOrEmpty(Profile().ProfileFileStoreId())">
+                    <i>Not set</i>
+                </div>
+
+                <div style="display:none" data-bind="visible: !IsNullOrEmpty(Profile().ProfileFileStoreId())">
+                    <div class="mb10">
+                        <img data-bind="attr: { src: window.GetProfilePhotoUrl(Profile().ProfileFileStoreId(), 150) }" />
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-sm" data-bind="enable: !IsNullOrEmpty(Profile().ProfileFileStoreId()) && !RemovingProfilePhoto(), click: function() { RemoveProfilePhoto(); }">Remove Profile Photo</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Cover Photo</h3>
+            </div>
+            <div class="panel-body">
+
+                <div style="display:none" data-bind="visible: IsNullOrEmpty(Profile().CoverFileStoreId())">
+                    <i>Not set</i>
+                </div>
+
+                <div style="display:none" data-bind="visible: !IsNullOrEmpty(Profile().CoverFileStoreId())">
+                    <div class="mb10">
+                        <img data-bind="attr: { src: Profile().GetProfileCoverUrl150 }" />
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-sm" data-bind="enable: !IsNullOrEmpty(Profile().CoverFileStoreId()) && !RemovingCoverPhoto(), click: function() { RemoveCoverPhoto(); }">Remove Cover Photo</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section script
+{
+    var _payload = @Html.Raw(ViewBag.Payload);
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/admin/user")
+}

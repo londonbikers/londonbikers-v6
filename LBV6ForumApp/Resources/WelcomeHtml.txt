@@ -1,0 +1,22 @@
+﻿<p style="font-size:1.3em;">
+	Welcome <b>{0}</b>!
+</p>
+<p>
+	You've joined the biggest and best community for bikers in and around London. To get the most out of being a member we've got some suggestions that might help you:
+</p>
+								
+<div style="padding: 5px 20px 5px 20px; border-radius: 3px; background-color: #3dade1;">
+								
+	<p><b>Introduce yourself</b></p>
+	<p>Say hi and let us know what you're riding in our <a href="https://londonbikers.com/forums/5/newbies" target="_blank" style="color: #fff; text-decoration: underline; font-weight: bold;">Newbies Forum</a>.</p>
+									
+	<p><b>Come to one of our newbie meets</b></p>
+	<p>Posting in the Newbie Forum is a great way to have everyone see you've arrived. We also host a monthly newbie night at the famous Ace Cafe on the first Monday of the month from 6pm.</p>
+									
+	<p><b>Come to our weekly bike meet</b></p>
+	<p>We've had our own bike meet at Borough Market (Stoney Street) since 2007. You can find us there every Wednesday evening after work. Come along!</p>
+									
+	<p><b>Go on a ride-out</b></p>
+	<p>There's always ride-outs, track-days and road trips being organised. Check out the <a href="https://londonbikers.com/forums/6/ride-outs" target="_blank" style="color: #fff; text-decoration: underline; font-weight: bold;">Events Forum</a> often to make sure you don't miss a great day out.</p>
+								
+</div>	

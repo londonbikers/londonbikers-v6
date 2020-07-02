@@ -1,0 +1,84 @@
+﻿@using System.Configuration
+@model LBV6.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    ViewBag.ShowAuthControls = false;
+}
+
+<div class="content-frame-colour-1 p20 text-center">
+    <h2 class="text-uppercase">@ViewBag.Title</h2>
+    <div class="row p20">
+        <div class="large-social-buttons">
+            @Html.Partial("_SocialLoginButtons")
+        </div>
+        <div class="mt10 text-uppercase">
+            Super-fast, jump straight in
+        </div>
+    </div>
+</div>
+
+<div class="content-frame-dark mb10 p20">
+
+    <div class="center-column">
+
+        <div class="mt20 mb40">
+            <h4 class="light text-center">Or create a local account if you prefer</h4>
+        </div>
+
+        @using (Html.BeginForm("register", "account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                    <div class="mt10">
+                        <i>Your username is how you will be known to everyone, i.e. "R1Fan"</i>
+                    </div>
+                    <div class="alert alert-warning mt10" role="alert">
+                        Keep it safe, keep it secret - we recommend you <b>don't</b> use your real name
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+
+                    <div class="mt20 alert alert-info" role="alert">
+                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                        @ConfigurationManager.AppSettings["LB.PasswordPolicyText"]
+                    </div>
+
+                    <div class="mt20">
+                        <i>By registering you are agreeing to our @Html.ActionLink("terms and community guidelines", "rules", "home", null, new { target = "_blank" }).</i>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Register" />
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

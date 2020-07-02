@@ -1,0 +1,92 @@
+﻿@using System.Configuration
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/content/images/webclip/57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/content/images/webclip/60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/content/images/webclip/72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/content/images/webclip/76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/content/images/webclip/57x57@2x.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/content/images/webclip/60x60@2x.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/content/images/webclip/72x72@2x.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/content/images/webclip/152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/content/images/webclip/180x180.png">
+
+    @Html.Partial("_OpenGraph")
+
+    @if (ConfigurationManager.AppSettings["LB.IsProduction"] != "true")
+    {
+        <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    }
+
+    <title>LONDONBIKERS</title>
+    <meta name="description" content="The biggest and best community for bikers in and around London. Established in 2005 to connect riders so they can go on rideouts, trackdays, road-trips or find out if that bolt that fell off was really needed or not.">
+    @Styles.Render("~/content/css")
+    @Scripts.Render("~/bundles/head")
+
+    <script type="text/javascript">
+        var appInsights = window.appInsights ||
+            function(config) {
+                function s(config) {
+                    t[config] = function() {
+                        var i = arguments;
+                        t.queue.push(function() { t[config].apply(t, i) })
+                    }
+                }
+
+                var t = { config: config }, r = document, f = window, e = "script", o = r.createElement(e), i, u;
+                for (o.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", r.getElementsByTagName(e)[0]
+                        .parentNode.appendChild(o), t.cookie = r
+                        .cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"];
+                    i.length;
+                ) s("track" + i.pop());
+                return config.disableExceptionTracking ||
+                (i = "onerror", s("_" + i), u = f[i], f[i] = function(config, r, f, e, o) {
+                    var s = u && u(config, r, f, e, o);
+                    return s !== !0 && t["_" + i](config, r, f, e, o), s
+                }), t
+            }({
+                instrumentationKey: "@ConfigurationManager.AppSettings["ApplicationInsights.InstrumentationKey"]"
+            });
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+
+</head>
+<body id="body-splash">
+<div id="splash-back">
+    <div id="splash-wrap">
+        <header id="header-splash">
+            <a href="/" id="logo-splash"><img src="/content/svgz/londonbikers-lid-wide2.svgz" alt="londonbikers"/></a>
+        </header>
+        @RenderBody()
+    </div>
+    <footer class="bottom">
+        <div>
+            <div class="splash-text-bg">
+                <a href="/contact">Contact</a> &#8226;
+                <a href="/rules">Guidelines</a> &#8226;
+                <a href="/change">Change</a>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <text>&#8226;</text>
+                    <a href="/admin">Admin</a>
+                }
+            </div>
+        </div>
+        <div class="splash-text-bg">
+            &copy; @DateTime.UtcNow.Year - Tetron Ltd. All rights reserved.
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/scripts/jquery-3.2.1.min.js">\x3C/script>')</script>
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    @Scripts.Render("~/bundles/splash")
+    @RenderSection("scripts", false)
+</div>
+</body>
+</html>

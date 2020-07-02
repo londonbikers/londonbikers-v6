@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9FD99E24-7EE8-438B-A8E6-807574FFF9C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LBV6Library</RootNamespace>
+    <AssemblyName>LBV6Library</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Calvin|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Calvin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.2.0.4\lib\net45\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.3\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=8.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.8.7.0\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeTypeMap, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediaTypeMap.2.1.0.0\lib\net40\MimeTypeMap.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Spatial, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.3\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsyncHelpers.cs" />
+    <Compile Include="BackgroundTaskScheduler.cs" />
+    <Compile Include="Exceptions\PhotoTooSmallException.cs" />
+    <Compile Include="Exceptions\NotAuthorisedException.cs" />
+    <Compile Include="Interfaces\ICachable.cs" />
+    <Compile Include="Interfaces\ICommon.cs" />
+    <Compile Include="Interfaces\INotCachable.cs" />
+    <Compile Include="Logging.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Containers\LegacyReplyContainer.cs" />
+    <Compile Include="Models\Containers\PostIdsContainer.cs" />
+    <Compile Include="Models\Containers\UsersContainer.cs" />
+    <Compile Include="Models\Containers\PostsContainer.cs" />
+    <Compile Include="Models\Dtos\CategoryExtendedDto.cs" />
+    <Compile Include="Models\Dtos\CategoryDto.cs" />
+    <Compile Include="Models\Dtos\CategorySimpleDto.cs" />
+    <Compile Include="Models\Dtos\ForumRoleDto.cs" />
+    <Compile Include="Models\Dtos\ForumExtendedDto.cs" />
+    <Compile Include="Models\Dtos\ForumDto.cs" />
+    <Compile Include="Models\Dtos\ForumSimpleDto.cs" />
+    <Compile Include="Models\Dtos\NotificationDto.cs" />
+    <Compile Include="Models\Dtos\PhotoCommentDto.cs" />
+    <Compile Include="Models\Dtos\PhotoDto.cs" />
+    <Compile Include="Models\Dtos\PostAttachmentDto.cs" />
+    <Compile Include="Models\Dtos\PostModerationDto.cs" />
+    <Compile Include="Models\Dtos\PostModerationHistoryItemDto.cs" />
+    <Compile Include="Models\Dtos\PrivateMessageDto.cs" />
+    <Compile Include="Models\Dtos\PrivateMessageHeaderDto.cs" />
+    <Compile Include="Models\Dtos\PrivateMessageHeaderUserDto.cs" />
+    <Compile Include="Models\Dtos\PrivateMessageReadByDto.cs" />
+    <Compile Include="Models\Dtos\ReplyDto.cs" />
+    <Compile Include="Models\Dtos\TopicDto.cs" />
+    <Compile Include="Models\Dtos\TopicHeaderDto.cs" />
+    <Compile Include="Models\Dtos\ProminentUserDto.cs" />
+    <Compile Include="Models\Dtos\UserProfileExtendedDto.cs" />
+    <Compile Include="Models\Dtos\UserProfileDto.cs" />
+    <Compile Include="Models\Dtos\UserProfileLightExtendedDto.cs" />
+    <Compile Include="Models\Dtos\UserProfileLightDto.cs" />
+    <Compile Include="Models\Dtos\UserProfileSelfDto.cs" />
+    <Compile Include="Models\Enumerations.cs" />
+    <Compile Include="Models\Forum.cs" />
+    <Compile Include="Models\ForumAccessRole.cs" />
+    <Compile Include="Models\ForumPostRole.cs" />
+    <Compile Include="Models\Google\GooglePlusUserProfile.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\NotificationSubscription.cs" />
+    <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\PhotoComment.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostAttachment.cs" />
+    <Compile Include="Models\PostModerationHistoryItem.cs" />
+    <Compile Include="Models\PrivateMessage.cs" />
+    <Compile Include="Models\PrivateMessageAttachment.cs" />
+    <Compile Include="Models\PrivateMessageHeader.cs" />
+    <Compile Include="Models\PrivateMessageHeaderUser.cs" />
+    <Compile Include="Models\PrivateMessageReadBy.cs" />
+    <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\UserSignInSummary.cs" />
+    <Compile Include="Models\TopicSeenBy.cs" />
+    <Compile Include="Models\TopicView.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserClaim.cs" />
+    <Compile Include="Models\UserStats.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transformations.cs" />
+    <Compile Include="Urls.cs" />
+    <Compile Include="Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,11 @@
+﻿<script type="text/html" id="text-editor-mobile">
+    <textarea class="form-control" rows="4" placeholder="Share your thoughts..." data-bind="textInput: model.Content" spellcheck="true"></textarea>
+</script>
+
+<script type="text/html" id="text-editor-desktop">
+    <textarea class="form-control" rows="4" data-bind="redactor: model.Content, placeholder: placeholder" spellcheck="true"></textarea>
+</script>
+
+<script type="text/html" id="text-editor-modal">
+    <textarea class="form-control" rows="4" data-bind="redactor: model.Content, maxHeight: window.GetEditModalEditorMaxHeight(model.IsTopic)" spellcheck="true"></textarea>
+</script>

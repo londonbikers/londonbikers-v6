@@ -1,0 +1,27 @@
+﻿<script type="text/html" id="latest-topic-headers-phone">
+    <table class="table mt10" id="headers">
+        <tbody data-bind="foreach: Topics">
+        <tr>
+            <td data-bind="css: { 'fade-70pc': IsNew() === false && HasNewReplies() === false }" class="p15">
+                
+                <span data-bind="html: window.GetTopicIconsHtml($data)"></span>
+                <span data-bind="html: window.GetTopicAdditionalIconsHtml($data), css: { light: !IsNew(), lowlight: IsNew() }"></span>
+                <span class="topic-name topic-name-mobile">
+                        <a data-bind="attr: { href: GetUrl }, css: { 'topic-name-read': IsNew() === false, 'topic-name-has-updates': HasNewReplies() === true }, text: Subject"></a>
+                    </span>
+
+                <div class="lowlight mt5">
+                    In <a data-bind="attr: { href: GetForumUrl }, text: ForumName"></a>
+                    <span data-bind="text: GetShortFriendlyUpdated"></span>
+                </div>
+
+                <div class="mt5">
+                    <!-- ko foreach: ProminentUsers -->
+                        <a data-bind="attr: { href: window.GetUserProfileUrl($data.UserName), title: $data.UserName + ' - ' + $data.Reason }, html: window.GetUserProfileGraphic('small', $data.UserName, $data.ProfileFileStoreId)"></a>
+                        <!-- /ko -->
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</script>

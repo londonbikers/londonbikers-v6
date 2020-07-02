@@ -1,0 +1,17 @@
+﻿<script type="text/html" id="category-structure-phone">
+    
+    <table class="table table-striped mt10">
+        <tbody data-bind="foreach: Category.Forums">
+            <tr>
+                <td>
+                    <b class="forum-name medium-2"><a href="#" data-bind="attr: { href: GetUrl }, text: Name"></a></b>
+                    <div class="mt5 lowlight">
+                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> <span data-bind="html: GetFriendlyLastUpdated" class="mr5"></span>
+                        &middot; <span class="ml5" data-bind="html: GetFriendlyStats"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</script>

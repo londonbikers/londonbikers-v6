@@ -1,0 +1,7 @@
+﻿{0}, someone's sent you a private message:
+
+{1} wrote:
+"{2}"
+
+See the whole message and any others in your Intercom:
+{3}

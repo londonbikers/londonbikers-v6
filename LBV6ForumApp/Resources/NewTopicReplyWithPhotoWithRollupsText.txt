@@ -1,0 +1,11 @@
+﻿{0}, there's been <b>{1}</b> replies to a topic you're following recently:
+
+{2}
+
+The last reply is:
+
+{3} wrote:
+"{4}"
+
+See the whole reply at:
+{5}

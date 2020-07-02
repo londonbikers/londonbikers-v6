@@ -1,0 +1,146 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ShowForumTopNav = true;
+}
+
+<div class="center-column">
+
+    <div data-bind="template: { name: window.IsMobile() ? 'topic-op-mobile' : 'topic-op-desktop' }"></div>
+
+    <div data-bind="template: { name: window.IsMobile() ? 'topic-replies-mobile' : 'topic-replies-desktop' }"></div>
+
+    @if (Request.IsAuthenticated)
+    {
+        <div id="post-ctrl-div" class="content-frame mt20 mb10" data-bind="visible: Topic().StatusCode() == 0">
+            <div data-bind="template: { name: window.GetTextEditorTemplate(), data: { model: NewReply(), placeholder: 'Write your reply...' } }"></div>
+            <div class="mt10 photo-uploader" id="reply-photo-uploader" style="display: none" data-bind="visible: ShowingReplyUploader()">
+                <div id="reply-photo-uploader-control" class="photo-uploader-control"></div>
+            </div>
+            <div id="post-ctrl-btns-div" data-bind="css: { 'text-center': window.IsMobile() }">
+                <button class="btn btn-default w130" style="display: none" data-bind="visible: !ShowingReplyUploader() && window._enablePhotoUploads, click: function() { ShowReplyUploader() }">
+                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Add Photos
+                </button>
+                <button class="btn btn-default w130" style="display: none" data-bind="visible: ShowingReplyUploader(), click: function() { HideReplyUploader() }, enable: !Uploading()">
+                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Cancel
+                </button>
+                <button class="btn btn-primary w130" data-bind="enable: ReadyToPostReply() && !Posting(), click: SubmitNewReply">Post Reply</button>
+            </div>
+        </div>
+
+        <div id="edit-modal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">Edit Post</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb10" data-bind="visible: PostBeingEdited().IsTopic">
+                            <input type="text" class="form-control" data-bind="textInput: PostBeingEdited().Subject" />
+                        </div>
+                        <div id="edit-modal-editor-container" class="form-group" data-bind="template: { name: 'text-editor-modal', data: { model: PostBeingEdited() } }"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click:CancelPostEdit">Cancel</button>
+                        <button id="btn-save-changes" type="button" class="btn btn-primary" data-bind="enable: $root.PostBeingEdited().IsValid(), click: SubmitPostEdit">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (Request.IsAuthenticated && User.IsInRole("Moderator"))
+    {
+        <div id="mod-modal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">Moderate post</h4>
+                    </div>
+                    <div class="modal-body">
+                        What do you want to do?
+                        <div data-bind="visible: $root.ModPostIsTopic">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="modIsSticky" data-bind="checked: $root.ModPostIsSticky() === true, event: { click: ToggleIsStickyModeration }" /> Stick topic to top of forum?
+                                </label>
+                            </div>
+                            <hr class="compact" />
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="modType" id="modRemovePostCheck" value="Remove">
+                                Remove post
+                            </label>
+                        </div>
+                        <div class="radio" data-bind="visible: $root.ModPostIsTopic">
+                            <label>
+                                <input type="radio" name="modType" id="modCloseTopicCheck" value="Close">
+                                Close topic
+                            </label>
+                        </div>
+                        <div class="radio" data-bind="visible: $root.ModPostIsTopic">
+                            <label>
+                                <input type="radio" name="modType" id="modMoveTopicCheck" value="Move">
+                                Move topic
+                            </label>
+                            <select id="modDestinationForumId" class="mt5 form-control" data-bind="foreach: _categories">
+                                <optgroup data-bind="foreach: $data.Forums, attr:{ label: Name }">
+                                    <option data-bind="text: Name, value: Id"></option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <form role="form">
+                            <div class="form-group">
+                                <span class="light">Required:</span>
+                                <textarea id="modReason" class="mt5 form-control" rows="3" placeholder="What's the reason?" data-bind="textInput: $root.ModReason"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-bind="enable: $root.IsModerationFormValid, click: SubmitPostModeration">Moderate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+@if (Request.IsAuthenticated)
+{
+    @Html.Partial("_tmplTextEditors")
+}
+
+@if (Helpers.IsMobile())
+{
+    @Html.Partial("_tmplTopicOpMobile")
+    @Html.Partial("_tmplTopicRepliesMobile")
+}
+else
+{
+    @Html.Partial("_tmplTopicOpDesktop")
+    @Html.Partial("_tmplTopicRepliesDesktop")
+}
+
+@section script
+{
+    var _topicId = @ViewBag.TopicId;
+}
+
+@section outsideBindingScope 
+{
+    @if (!Helpers.IsMobile())
+    {
+        @Html.Partial("_tmplTopicGalleryDesktop")
+    }
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/forums/topic")
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+}

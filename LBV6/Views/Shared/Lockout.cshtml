@@ -1,0 +1,15 @@
+﻿@model HandleErrorInfo
+@{
+    ViewBag.Title = "Locked Out";
+    ViewBag.ShowAuthControls = false;
+}
+
+<div class="content-frame mt10">
+    <h1 class="text-danger">Locked out.</h1>
+    <h2 class="text-danger">This account has been locked out, please try again later.</h2>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/_shared")
+}

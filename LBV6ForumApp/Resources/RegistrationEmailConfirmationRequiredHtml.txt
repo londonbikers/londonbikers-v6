@@ -1,0 +1,9 @@
+﻿<p style="font-size:1.3em;">
+	<b>{0}</b>, thanks for joining!
+</p>
+<p>
+	We need to confirm your email address. Please click the link below to confirm that it was you that wanted to join londonbikers.com
+</p>
+<p>
+	<a href="{1}" target="_blank" style="color: #fff; text-decoration: underline; font-weight: bold;">Click here to confirm your email address and join the community!</a>
+</p>

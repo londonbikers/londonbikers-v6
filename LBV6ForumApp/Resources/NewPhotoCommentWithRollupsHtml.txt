@@ -1,0 +1,31 @@
+﻿<p>
+	{0}, there's been <b>{1}</b> comments to a photo recently you're following on topic:<br />
+	<b>{2}</b>
+</p>
+<p>
+	The latest comment was:
+</p>
+<div style="padding: 5px 20px 20px 20px; border-radius: 3px; background-color: #3dade1;">
+	<p>									
+		<b>{3}</b> wrote:<br />
+		<i>"{4}"</i>
+	</p>
+
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+			<td align="left">
+				<table cellspacing="0" cellpadding="0" border="0" align="left">
+					<tr>
+						<td align="left" style="width: 400px;">
+							<a href="{5}" target="_blank"><img src="{6}/os/{7}?maxwidth=400&maxheight=400&zoom=2" style="border-radius: 3px; vertical-align: middle; max-width: 400px; max-height: 400px;" /></a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+</div>
+<p>
+	<a href="{5}" target="_blank" style="color: #fff; text-decoration: underline; font-weight: bold;">Click here to see the whole thing...</a>
+</p>

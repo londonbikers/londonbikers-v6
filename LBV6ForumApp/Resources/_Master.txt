@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"  style="height: 100%;">
+ <head>
+ <!--[if gte mso 9]><xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+ </head>
+    <body style="padding:0; margin:0; height:100%; background-color: #f9f9f9; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;">
+		<table id="background" cellspacing="0" cellpadding="0" border="0" width="100%" height="100%">
+			<tr>
+				<td bgcolor="#f9f9f9" style="padding-bottom: 200px;" height="100%" valign="top">
+
+					<table id="top" cellspacing="0" cellpadding="20" border="0" width="100%">
+						<tr>
+							<td valign="top" bgcolor="#4cc6ff" style="color: #ffffff; line-height: 1.42857143;">
+								<div id="header" style="text-align: center;">
+									<a href="https://londonbikers.com" target="_blank"><img src="{0}/content/images/londonbikers-white-890.gif" alt="londonbikers.com" width="445" height="64" /></a>
+								</div>
+								<div style="padding:0 50px 50px 50px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;">
+								
+									{1}								
+								
+								</div>
+							</td>
+						</tr>
+					</table>
+					
+					<div id="footer" style="font-size: 12px; margin-top: 30px; color: #bbb; text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+						<div id="footer-controls" style="margin-bottom: 5px;">
+							Want to stop getting these messages? <a href="https://londonbikers.com/manage" style="color: #bbb;">Change your preferences here</a>.
+						</div>
+						<a href="https://londonbikers.com" style="color: #bbb;">londonbikers.com</a> &copy; Tetron Limited, all rights reserved
+					</div>				
+					
+				</td>
+			</tr>
+		</table>
+    </body>
+</html>

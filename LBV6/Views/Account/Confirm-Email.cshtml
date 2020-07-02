@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Email Confirmed";
+    ViewBag.ShowAuthControls = false;
+}
+
+<div class="center-column">
+    <div class="content-frame mt20">
+        <h2>@ViewBag.Title</h2>
+        <div class="mt10">
+            Thank you for confirming your email. Please @Html.ActionLink("Click here to sign-in", "sign-in", "account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </div>
+    </div>
+</div>

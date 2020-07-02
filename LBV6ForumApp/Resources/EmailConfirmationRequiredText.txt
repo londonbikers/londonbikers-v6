@@ -1,0 +1,7 @@
+﻿{0}, we need to confirm your e-mail address. If you signed-up to londonbikers then please click the link below. If you didn't, you can safely ignore this email and nothing bad will happen.
+
+Confirmation link:
+{1}
+
+
+https://londonbikers.com

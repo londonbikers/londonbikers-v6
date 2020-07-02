@@ -1,0 +1,30 @@
+<p>
+	<b>{0}</b>, just a headsup; we've had to moderate one of your posts. See below for details:
+</p>
+<div style="padding: 5px 20px 5px 20px; border-radius: 3px; background-color: #3dade1;">
+	<table cellspacing="0" cellpadding="20" border="0" width="100%">
+		<tr>
+			<td>
+
+				<table width="100%" cellpadding="2" cellspacing="0">
+					<tr>
+						<td width="120"><b>Post:</b></td>
+						<td><a href="{1}" target="_blank" style="color: #fff; text-decoration: underline; font-weight: bold;">{2}</a></td>
+					</tr>
+					<tr>
+						<td width="120"><b>Action taken:</b></td>
+						<td>{3}</td>
+					</tr>
+					<tr>
+						<td width="120"><b>Reason:</b></td>
+						<td><i>"{4}"</i></td>
+					</tr>
+				</table>
+
+			</td>
+		</tr>
+	</table>
+</div>
+<p>
+	No action is required from you.
+</p>
