@@ -15,6 +15,8 @@ The development stack was:
 
 ## Design
 
+<img src="https://londonbikersarchive.blob.core.windows.net/github/lbv6%20post%20button%20demos.png" width="500" />
+
 <img src="https://londonbikersarchive.blob.core.windows.net/github/v6%20notifications-to-improve.png" alt="forum" width="500" />
 
 <img src="https://londonbikersarchive.blob.core.windows.net/github/v6%20user%20profile%20v1.png" alt="user profile" width="500" />
