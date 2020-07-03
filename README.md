@@ -3,7 +3,7 @@ This is the sixth version of the website where we developed a forum from scratch
 
 The website worked well but it was clear that with a single person working on development we weren't going to be able to implement all the forum features we wanted and would end up lagging behind other open-source products that were gaining traction that we had originally discounted as not mature enough for our needs during the design phase. So after a few years the decision was made to migrate to Discourse, an open-source, modern discussion platform.
 
-In hindsight, we believe this was a mistake, we should have modernised the main part of the site with the editorial and galleries, dropped off the directory and then migrated to the Discourse discussion platform to modernise the forums and enable a mobile-first experience. Losing the editorial aspect of the site cost the site a lot of traffic and discoverbility through the excellent Page Rankings we had.
+In hindsight, we believe this was a mistake, we should have modernised the main part of the site with the editorial and galleries, dropped off the directory and then migrated to the Discourse discussion platform to modernise the forums and enable a mobile-first experience. Losing the editorial aspect of the site cost the site a lot of traffic and discoverbility through the excellent Page Rankings we had. Though in fairness at the time part of the reason for focusing on the community was to better focus the resouces we had available.
 
 The development stack was:
 * ASP.NET MVC
