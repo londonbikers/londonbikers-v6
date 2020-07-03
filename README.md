@@ -22,3 +22,6 @@ The development stack was:
 <img src="https://londonbikersarchive.blob.core.windows.net/github/v6%20user%20profile%20v1.png" alt="user profile" width="500" />
 
 <img src="https://londonbikersarchive.blob.core.windows.net/github/v6%20LB-Intercom-1.PNG" alt="Intercom messaging system" width="500" />
+
+Our Intercom system in operation:
+https://www.youtube.com/watch?v=TQP3e4mK4oU
