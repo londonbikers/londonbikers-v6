@@ -1,7 +1,9 @@
 # londonbikers-v6
-The sixth version of the website where we developed a forum from scratch without the editorial aspect. The goal was to focus on the community and all other parts of the old site were dropped. We have a modern forum system that adopted a mobile-first design principle and had a fully-featured "Intercom" private messaging system.
+This is the sixth version of the website where we developed a forum from scratch without the editorial aspect. The goal was to focus on the community and all other parts of the old site were dropped, i.e. the editorial, galleries and directory. This resulted in a modern forum system that adopted a mobile-first design principle and had a fully-featured "Intercom" private messaging system.
 
 The website worked well but it was clear that with a single person working on development we weren't going to be able to implement all the forum features we wanted and would end up lagging behind other open-source products that were gaining traction that we had originally discounted as not mature enough for our needs during the design phase. So after a few years the decision was made to migrate to Discourse, an open-source, modern discussion platform.
+
+In hindsight, we believe this was a mistake, we should have modernised the main part of the site with the editorial and galleries, dropped off the directory and then migrated to the Discourse discussion platform to modernise the forums and enable a mobile-first experience. Losing the editorial aspect of the site cost the site a lot of traffic and discoverbility through the excellent Page Rankings we had.
 
 The development stack was:
 * ASP.NET MVC
